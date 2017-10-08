@@ -12,27 +12,27 @@ int rows[] = {A0,A1,A2,A3,A4,A5,10,11};
 
 // NOTES FOR BACKGROUND MUSIC
 const PROGMEM uint16_t bgnotes[] = {
-  
+/*
               NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, 
                 NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
                 NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, 
                 NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-                
+                */
                 NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, 
                 NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
                 NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, 
                 NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-                
+            
                 NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, 
                 NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
                 NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, 
                 NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-                
+              
                 NOTE_D4, NOTE_D4, 0, NOTE_D4, NOTE_D4, NOTE_D4, 0, NOTE_D4, 
                 NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4,
                 NOTE_A4, NOTE_A4, 0, NOTE_A4, NOTE_A4, NOTE_A4, NOTE_GS4, NOTE_A4, 
                 NOTE_E4, 0, 
-               
+              
                 NOTE_D4, NOTE_D4, 0, NOTE_D4, NOTE_D4, NOTE_D4, 0, NOTE_D4, 
                 NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4,
                 NOTE_A4, NOTE_A4, 0, NOTE_A4, NOTE_A4, NOTE_A4, NOTE_GS4, NOTE_A4, 
@@ -53,22 +53,22 @@ const PROGMEM uint16_t bgnotes[] = {
                 0
                 };
 const PROGMEM uint16_t bgdur[] = {
-  
+/*
            EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              
+          */    
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              
+               
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
-              
+           
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
@@ -100,22 +100,22 @@ int bgnotes_size = sizeof(bgnotes)/sizeof(uint16_t);
 
 // NOTES FOR PLAYER MUSIC
 const PROGMEM uint16_t mainnotes[] = {
-  
+ /*
                 NOTE_FS3, NOTE_FS3, NOTE_FS3, NOTE_FS3, 
                 NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
                 NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
                 NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
-                
+          */      
                 NOTE_FS3, NOTE_FS3, NOTE_FS3, NOTE_FS3, 
                 NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
                 NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
                 NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
-                
+             
                 NOTE_FS3, NOTE_FS3, NOTE_A3, NOTE_FS3,NOTE_A3,NOTE_FS3,NOTE_A3,NOTE_FS3,NOTE_A3,
                 NOTE_E3, NOTE_E3, NOTE_GS3, NOTE_E3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_E3,NOTE_GS3,
                 NOTE_A2, NOTE_A2, NOTE_CS3, NOTE_A2, NOTE_CS3,NOTE_A2, NOTE_CS3,NOTE_A2, NOTE_CS3,
                 NOTE_E3, NOTE_E3, NOTE_GS3, NOTE_E3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_E3,NOTE_GS3,
-                
+               
                 NOTE_B3, 
                 NOTE_D4, NOTE_FS4, NOTE_GS4, 
                 NOTE_FS4, 
@@ -141,22 +141,22 @@ const PROGMEM uint16_t mainnotes[] = {
                 
                 }; 
 const PROGMEM uint16_t maindur[] = {
-  
+/*
                 QUARTER, QUARTER, QUARTER, QUARTER, 
                 QUARTER, QUARTER, QUARTER, QUARTER,
                 QUARTER, QUARTER, QUARTER, QUARTER,
                 QUARTER, QUARTER, QUARTER, QUARTER, 
-                
+          */      
                 QUARTER, QUARTER, QUARTER, QUARTER, 
                 QUARTER, QUARTER, QUARTER, QUARTER,
                 QUARTER, QUARTER, QUARTER, QUARTER,
                 QUARTER, QUARTER, QUARTER, QUARTER, 
-                
+            
                 EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH,SIXTEENTH, EIGHTH,
                 EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH,SIXTEENTH, EIGHTH,
                 EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH,SIXTEENTH, EIGHTH,
                 EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH,SIXTEENTH, EIGHTH,
-                
+               
                 WHOLE,
                 DOT_HALF, EIGHTH, EIGHTH,
                 WHOLE,
@@ -187,26 +187,181 @@ int mainnotes_size = sizeof(mainnotes)/sizeof(uint16_t);
 // gap between notes
 int gapdur = 500-QUARTER; 
 
+/*const PROGMEM */int note_display[] = {
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00110000,  
+  B00110000,    
+  B00110000,  
+  B00110000,  
+  B00110000,  
+  B00110000,  
+  B00110000,  
+  B00110000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B00000011,
+  B00000011, 
+  B00110000,
+  B00000011,
+  B00000011, 
+  B00110000,
+  B00000011,
+  B00000011, 
+  B00110000,
+  B00110000,  
+  B00000011,
+  B00000011, 
+  B00110000,
+  B00110000,  
+  B11000000,  
+  B11000000,
+  B00001100,
+  B00001100,  
+  B00110000,
+  B00001100,
+  B00001100,  
+  B00110000,
+  B00001100,
+  B00001100,  
+  B00110000,
+  B00110000,  
+  B00001100,
+  B00001100,  
+  B00110000,
+  B00110000,  
+  B11000000,
+  B11000000,
+  B00000011,
+  B00000011,   
+  B00110000,  
+  B00000011,
+  B00000011,  
+  B00110000,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00110000,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00110000,
+  B11000000,
+  B11000000,
+  B00000011,
+  B00000011,
+  B00001100,
+  B00000011,
+  B00000011,
+  B00001100,
+  B00000011,
+  B00000011,
+  B00001100,
+  B00001100,
+  B00000011,
+  B00000011,
+  B00001100,
+  B00110000,
+  B00000011, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00000011, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00000011, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B00000011, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B00000011, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00000011, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00000011, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00000011, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000
+  };
 
-int letter_O[] = {B01111110, 
-                  B11100111, 
-                  B11000011, 
-                  B11000011, 
-                  B11000011, 
-                  B11000011, 
-                  B11100111,
-                  B01111110};
-
-int letter_K[] = {B01100011, 
-                  B01100110, 
-                  B01101100, 
-                  B01111000, 
-                  B01101100, 
-                  B01100110, 
-                  B01100011, 
-                  B01100001};
-
-int letter_size = sizeof(letter_O)/sizeof(int); 
+int notedisp_size = sizeof(note_display)/sizeof(int); 
+int dispstart = notedisp_size-8; 
+int dispstart2 = notedisp_size-8; 
+int dispend = notedisp_size-1;
+int disprow;   
+bool startMelody = false;
 
 Tone notePlayer[2];
 
@@ -215,6 +370,8 @@ int col;
 int OKidx;
 int prevtime; 
 int currtime; 
+
+int noteIdx; 
 
 void setup() {
   // put your setup code here, to run once:
@@ -267,51 +424,56 @@ void TestLoop(PTCB tcb) {
   }
 }
 
-void write_OK(PTCB tcb) {
-  MOS_Continue(tcb);  
-  prevtime = millis(); 
-  
-  while (1) {
+void displayNotes(PTCB tcb) {
+  MOS_Continue(tcb);     
+  prevtime = millis();  
+
+  while (1) {  
     currtime = millis(); 
-    if(currtime < prevtime +1000) {
-      for(OKidx = 0; OKidx < letter_size; OKidx++) {
-        PORTD = letter_O[OKidx];
-        digitalWrite(rows[OKidx], LOW); 
-        
-        MOS_Delay(tcb,1); 
-        
-        PORTD = 0;
-        digitalWrite(rows[OKidx], HIGH); 
-      }
-    }
-
-    else if(currtime >= prevtime+2000) {
-      prevtime = currtime;
-    }
-
-    else if(currtime >= prevtime +1000) {
+    disprow = 0; 
     
-      for(OKidx = 0; OKidx < letter_size; OKidx++) {
-        PORTD = letter_K[OKidx];
-        digitalWrite(rows[OKidx], LOW); 
-        
-        MOS_Delay(tcb,1); 
-        
-        PORTD = 0;
-        digitalWrite(rows[OKidx], HIGH); 
+    if(dispstart2 >= 0) {
+      if(currtime < prevtime + 122) {
+        for(dispstart = dispstart2; dispstart <= dispend; dispstart++) {
+          PORTD = note_display[dispstart];
+          if(disprow == 6) {
+          
+            if(dispend == notedisp_size-8) {
+              if(!startMelody)
+                startMelody = true;
+            }
+            PORTD = B11111111;
+          }
+          digitalWrite(rows[disprow], LOW); 
+          
+          MOS_Delay(tcb,1); 
+          
+          PORTD = 0;
+          digitalWrite(rows[disprow], HIGH); 
+          disprow++;
+          
+        }
       }
+      else {
+        dispstart2--;  
+        dispstart--; 
+        dispend--; 
+        prevtime = currtime;
+      } 
     }
-
-    
+    else {
+      MOS_Break(tcb);
+    }
   }
+}
 
-} 
+
 
 void PlayMelody1(PTCB tcb) {
   MOS_Continue(tcb);    
   bgidx= 0; 
   while (1) { 
-    
+    MOS_WaitForCond(tcb, startMelody);
     if(bgidx < bgnotes_size) {
       //int currnote = bgnotes[bgidx]; 
       uint16_t currnote = pgm_read_word_near(bgnotes + bgidx); 
@@ -321,6 +483,7 @@ void PlayMelody1(PTCB tcb) {
       } else if (currnote == 0) {
         notePlayer[1].stop();
       }
+      
       uint16_t dur = pgm_read_word_near(bgdur+ bgidx); 
       MOS_Delay(tcb, dur);
       notePlayer[1].stop();
@@ -333,8 +496,9 @@ void PlayMelody1(PTCB tcb) {
 void PlayMelody2(PTCB tcb) {
   MOS_Continue(tcb);   
   mainidx = 0; 
-  bool done = false;
+
   while (1) {
+    MOS_WaitForCond(tcb, startMelody);
     if(mainidx < mainnotes_size) {
       //int currnote = mainnotes[mainidx]; 
       uint16_t currnote = pgm_read_word_near(mainnotes + mainidx); 
@@ -361,5 +525,5 @@ void loop() {
   //testloop();  
   MOS_Call(PlayMelody1);
   MOS_Call(PlayMelody2);
-  MOS_Call(write_OK);
+  MOS_Call(displayNotes);
 }
