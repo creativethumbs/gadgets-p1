@@ -187,7 +187,8 @@ int mainnotes_size = sizeof(mainnotes)/sizeof(uint16_t);
 // gap between notes
 int gapdur = 500-QUARTER; 
 
-/*const PROGMEM */int note_display[] = {
+const PROGMEM int note_display[] = {   
+  
   B00000000, 
   B00000000,
   B00000000,
@@ -196,6 +197,106 @@ int gapdur = 500-QUARTER;
   B00000000,
   B00000000,
   B00000000,
+
+  B00000000,
+  B00000000,
+  B00000000,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+
+  B00001100,
+  B00000011,
+  B00001100,
+  B00110000,
+  B11000000,
+  B00001100,
+  B00110000,
+  B00110000,
+
+  B00110000,
+  B00001100,
+  B00000011,
+  B00001100,
+  B00110000,
+  B00001100,
+  B00110000,
+  B00110000,  
+
+  B00110000,
+  B00001100,
+  B00000011,
+  B00001100,
+  B00110000,
+  B00001100,
+  B00110000,
+  B00110000,
+
+  B00000000,  
+  B00001100,
+  B00000011,
+  B00000011,
+  B00001100,
+  B00110000,
+  B11000000,
+  B00000000,  
+
+  B11000000,
+  B00110000,
+  B00001100,
+  B00000011,
+  B00001100,
+  B00110000,
+  B11000000,
+  B11000000,  // BOSS BATTLE
+  
+  B00001100,      
+  B00001100,   
+  B00001100,      
+  B00001100,    
+  B11000000,  
+  B11000000,       
+  B11000000,    
+  B11000000,   
+  
+  B00000011,   
+  B00000011,   
+  B00000011,   
+  B00000011, 
+  B00110000,   
+  B00110000,   
+  B00110000,   
+  B00110000,  
+  
+  B00001100,
+  B00001100, 
+  B00001100,
+  B00001100, 
+  B00001100,
+  B00001100,   
+  B00001100,  
+  B00001100,
+     
+  B00001100,
+  B00001100, 
+  B00001100,
+  B00001100, 
+  B00001100,
+  B00001100,   
+  B00001100,
+  B00001100, 
+  
+  B00000011,
+  B00000011, 
+  B00001100,
+  B00001100,    
+  B00110000,  
+  B00110000,    
+  B00110000,  
+  B00110000,  
+  
   B00110000,  
   B00110000,    
   B00110000,  
@@ -204,7 +305,7 @@ int gapdur = 500-QUARTER;
   B00110000,  
   B00110000,  
   B00110000,
-  B11000000,  
+
   B11000000,
   B11000000,  
   B11000000,
@@ -213,13 +314,88 @@ int gapdur = 500-QUARTER;
   B11000000,  
   B11000000,
   B11000000,  
-  B11000000,
+  
   B11000000,  
   B11000000,
   B11000000,  
   B11000000,
   B11000000,  
   B11000000,
+  B11000000,  
+  B11000000,  
+  
+  B00001100,    
+  B00001100,    
+  B00110000,    
+  B00110000,    
+  B00001100,   
+  B00110000,    
+  B11000000,  
+  B11000000, 
+   
+  B00001100,    
+  B00001100,    
+  B00110000,    
+  B00110000,    
+  B00001100,   
+  B00110000,    
+  B11000000,  
+  B11000000,
+  
+  B00001100,
+  B00001100, 
+  B00001100,
+  B00001100, 
+  B00001100,
+  B00001100,   
+  B00001100,
+  B00001100,   
+  
+  B00001100,
+  B00001100, 
+  B00001100,
+  B00001100, 
+  B00001100,
+  B00001100,   
+  B00001100,
+  B00001100,
+   
+  B00000011,
+  B00000011, 
+  B00001100,
+  B00001100,    
+  B00110000,  
+  B00110000,    
+  B00110000,  
+  B00110000,
+    
+  B00110000,  
+  B00110000,    
+  B00110000,  
+  B00110000,  
+  B00110000,  
+  B00110000,  
+  B00110000,  
+  B00110000,
+  
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  B11000000,  
+  B11000000,
+  
   B00000011,
   B00000011, 
   B00110000,
@@ -228,6 +404,7 @@ int gapdur = 500-QUARTER;
   B00110000,
   B00000011,
   B00000011, 
+  
   B00110000,
   B00110000,  
   B00000011,
@@ -236,6 +413,7 @@ int gapdur = 500-QUARTER;
   B00110000,  
   B11000000,  
   B11000000,
+  
   B00001100,
   B00001100,  
   B00110000,
@@ -243,7 +421,8 @@ int gapdur = 500-QUARTER;
   B00001100,  
   B00110000,
   B00001100,
-  B00001100,  
+  B00001100,
+    
   B00110000,
   B00110000,  
   B00001100,
@@ -252,6 +431,7 @@ int gapdur = 500-QUARTER;
   B00110000,  
   B11000000,
   B11000000,
+  
   B00000011,
   B00000011,   
   B00110000,  
@@ -260,6 +440,7 @@ int gapdur = 500-QUARTER;
   B00110000,
   B00000011,
   B00000011,
+  
   B00110000,
   B00110000,
   B00000011,
@@ -268,20 +449,25 @@ int gapdur = 500-QUARTER;
   B00110000,
   B11000000,
   B11000000,
+  
   B00000011,
   B00000011,
   B00001100,
   B00000011,
   B00000011,
+  B00001100,  
+  B00000011,
+  B00000011,
+  
+  B00001100,
   B00001100,
   B00000011,
   B00000011,
   B00001100,
-  B00001100,
-  B00000011,
-  B00000011,
   B00001100,
   B00110000,
+  B00110000,
+  
   B00000011, 
   B00000011,
   B00000011,
@@ -290,6 +476,7 @@ int gapdur = 500-QUARTER;
   B00110000,
   B00110000,
   B00110000,
+  
   B00000011, 
   B00000011,
   B00000011,
@@ -298,6 +485,7 @@ int gapdur = 500-QUARTER;
   B00110000,
   B00110000,
   B00110000,
+  
   B00000011, 
   B00000011,
   B00000011,
@@ -306,6 +494,7 @@ int gapdur = 500-QUARTER;
   B11000000,
   B11000000,
   B11000000,
+  
   B00000011, 
   B00000011,
   B00000011,
@@ -314,6 +503,7 @@ int gapdur = 500-QUARTER;
   B11000000,
   B11000000,
   B11000000,
+  
   B00000011, 
   B00000011,
   B00000011,
@@ -322,6 +512,7 @@ int gapdur = 500-QUARTER;
   B00110000,
   B00110000,
   B00110000,
+  
   B00000011, 
   B00000011,
   B00000011,
@@ -330,6 +521,7 @@ int gapdur = 500-QUARTER;
   B00110000,
   B00110000,
   B00110000,
+  
   B00000011, 
   B00000011,
   B00000011,
@@ -338,6 +530,7 @@ int gapdur = 500-QUARTER;
   B00001100,
   B00001100,
   B00001100,
+  
   B00000011, 
   B00000011,
   B00000011,
@@ -346,6 +539,7 @@ int gapdur = 500-QUARTER;
   B00001100,
   B00001100,
   B00001100,
+  
   B00000000, 
   B00000000,
   B00000000,
@@ -356,7 +550,10 @@ int gapdur = 500-QUARTER;
   B00000000
   };
 
-int notedisp_size = sizeof(note_display)/sizeof(int); 
+int notedisp_size = sizeof(note_display)/sizeof(uint16_t); 
+
+//int notedisp_size = 40*8; 
+
 int dispstart = notedisp_size-8; 
 int dispstart2 = notedisp_size-8; 
 int dispend = notedisp_size-1;
@@ -368,10 +565,12 @@ Tone notePlayer[2];
 int row; 
 int col; 
 int OKidx;
-int prevtime; 
-int currtime; 
+long prevtime; 
+long currtime; 
 
 int noteIdx; 
+
+long startTime;  
 
 void setup() {
   // put your setup code here, to run once:
@@ -390,6 +589,7 @@ void setup() {
 
   //pinMode(speakerPin, OUTPUT); 
   //noTone(speakerPin);
+  startTime = millis(); 
 }
 
 void testloop() {
@@ -433,20 +633,24 @@ void displayNotes(PTCB tcb) {
     disprow = 0; 
     
     if(dispstart2 >= 0) {
-      if(currtime < prevtime + 122) {
-        for(dispstart = dispstart2; dispstart <= dispend; dispstart++) {
-          PORTD = note_display[dispstart];
+      if(currtime < prevtime + 118) {
+        for(dispstart = dispstart2; dispstart < dispstart2 + 8; dispstart++) {
+          
+          uint16_t dispnote = pgm_read_word_near(note_display + dispstart); 
+          
+          //PORTD = note_display[dispstart];
+          PORTD = dispnote; 
           if(disprow == 6) {
           
-            if(dispend == notedisp_size-8) {
-              if(!startMelody)
-                startMelody = true;
-            }
+//            if(dispend == notedisp_size-8) {
+//              if(!startMelody)
+//                startMelody = true;
+//            }
             PORTD = B11111111;
           }
           digitalWrite(rows[disprow], LOW); 
           
-          MOS_Delay(tcb,1); 
+          MOS_Delay(tcb,1);  
           
           PORTD = 0;
           digitalWrite(rows[disprow], HIGH); 
@@ -454,20 +658,43 @@ void displayNotes(PTCB tcb) {
           
         }
       }
+      
       else {
         dispstart2--;  
         dispstart--; 
         dispend--; 
         prevtime = currtime;
       } 
+      
     }
     else {
-      MOS_Break(tcb);
+//      MOS_Break(tcb);
+      for(row = 0; row < 8; row++) {
+        for(col = 0; col < 8; col++) {
+          digitalWrite(columns[col], HIGH); 
+          digitalWrite(rows[row], LOW); 
+    
+          MOS_Delay(tcb, 100);
+    
+          digitalWrite(columns[col], LOW); 
+          digitalWrite(rows[row], HIGH); 
+        }
+      }
     }
   }
 }
 
-
+void ticker(PTCB tcb) {
+  MOS_Continue(tcb);    
+  while(1) {
+    if(!startMelody && millis() >= startTime + 875) {
+      startMelody = true;
+    }
+    else {
+      MOS_Break(tcb);
+    } 
+  }
+}
 
 void PlayMelody1(PTCB tcb) {
   MOS_Continue(tcb);    
@@ -523,7 +750,9 @@ void PlayMelody2(PTCB tcb) {
 
 void loop() {
   //testloop();  
+  MOS_Call(ticker); 
+  MOS_Call(displayNotes);
   MOS_Call(PlayMelody1);
   MOS_Call(PlayMelody2);
-  MOS_Call(displayNotes);
+
 }
