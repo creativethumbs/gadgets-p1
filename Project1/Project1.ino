@@ -12,12 +12,12 @@ int rows[] = {A0,A1,A2,A3,A4,A5,10,11};
 
 // NOTES FOR BACKGROUND MUSIC
 const PROGMEM uint16_t bgnotes[] = {
-/*
+
               NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, 
                 NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
                 NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, 
                 NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-                */
+                
                 NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, 
                 NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
                 NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, 
@@ -53,12 +53,12 @@ const PROGMEM uint16_t bgnotes[] = {
                 0
                 };
 const PROGMEM uint16_t bgdur[] = {
-/*
+
            EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-          */    
+              
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
               EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
@@ -100,12 +100,12 @@ int bgnotes_size = sizeof(bgnotes)/sizeof(uint16_t);
 
 // NOTES FOR PLAYER MUSIC
 const PROGMEM uint16_t mainnotes[] = {
- /*
+ 
                 NOTE_FS3, NOTE_FS3, NOTE_FS3, NOTE_FS3, 
                 NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
                 NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
                 NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
-          */      
+               
                 NOTE_FS3, NOTE_FS3, NOTE_FS3, NOTE_FS3, 
                 NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
                 NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
@@ -141,12 +141,12 @@ const PROGMEM uint16_t mainnotes[] = {
                 
                 }; 
 const PROGMEM uint16_t maindur[] = {
-/*
+
                 QUARTER, QUARTER, QUARTER, QUARTER, 
                 QUARTER, QUARTER, QUARTER, QUARTER,
                 QUARTER, QUARTER, QUARTER, QUARTER,
                 QUARTER, QUARTER, QUARTER, QUARTER, 
-          */      
+              
                 QUARTER, QUARTER, QUARTER, QUARTER, 
                 QUARTER, QUARTER, QUARTER, QUARTER,
                 QUARTER, QUARTER, QUARTER, QUARTER,
@@ -667,7 +667,79 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00001100,
   B00001100,
+
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
   
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
   B00000000, 
   B00000000,
   B00000000,
@@ -795,19 +867,19 @@ void displayNotes(PTCB tcb) {
       } 
       
     }
-    else {
-//      MOS_Break(tcb);
+    else { 
       for(row = 0; row < 8; row++) {
         for(col = 0; col < 8; col++) {
           digitalWrite(columns[col], HIGH); 
           digitalWrite(rows[row], LOW); 
     
-          MOS_Delay(tcb, 100);
+          MOS_Delay(tcb, 50);
     
           digitalWrite(columns[col], LOW); 
           digitalWrite(rows[row], HIGH); 
         }
       }
+      MOS_Break(tcb);
     }
   }
 }
