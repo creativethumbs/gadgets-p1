@@ -298,7 +298,6 @@ const PROGMEM int note_display[] = {
   B11000000, 
 
   B00000000,
-  B00000000,  
 
   B00000000,
   B00000000,
@@ -336,7 +335,6 @@ const PROGMEM int note_display[] = {
   B00110000,  
   B00110000, 
 
-  B00000000,
   B00000000,   
 
   B00000000,
@@ -594,6 +592,9 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00110000,
   B00110000,
+
+  B00000000,
+  B00000000,
   
   B00000011, 
   B00000011,
@@ -844,6 +845,9 @@ void PlayMelody1(PTCB tcb) {
       MOS_Delay(tcb,gapdur); 
       bgidx++;
     }
+    else {
+      MOS_Break(tcb);
+    }
      
   }
 }
@@ -869,6 +873,10 @@ void PlayMelody2(PTCB tcb) {
       MOS_Delay(tcb,gapdur); 
       
       mainidx++; 
+    }
+
+    else {
+      MOS_Break(tcb);
     }
     
   } 
