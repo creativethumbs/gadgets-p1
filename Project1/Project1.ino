@@ -856,16 +856,16 @@ void displayNotes(PTCB tcb) {
           PORTD = dispnote; 
           
           if(disprow == 6) { 
-            int L1val = ((digitalRead(L1pin))&0x11) << 6 ; 
-            int L2val = ((digitalRead(L2pin))&0x11) << 4 ; 
-            int R1val = ((digitalRead(R1pin))&0x11) << 2 ; 
-            int R2val = digitalRead(R2pin)&0x11; 
-
-            correctNote = (dispnote == (L1val+L2val+R1val+R2val));
-            //playerNote = dispnote;
-            
-            if(!checkInput)
-              checkInput = true;
+//            int L1val = ((digitalRead(L1pin))&0x11) << 6 ; 
+//            int L2val = ((digitalRead(L2pin))&0x11) << 4 ; 
+//            int R1val = ((digitalRead(R1pin))&0x11) << 2 ; 
+//            int R2val = digitalRead(R2pin)&0x11; 
+//
+//            correctNote = (dispnote == (L1val+L2val+R1val+R2val));
+//            //playerNote = dispnote;
+//            
+//            if(!checkInput)
+//              checkInput = true;
               
             PORTD = B11111111;
           }
@@ -995,8 +995,12 @@ void PlayerMelody(PTCB tcb) {
             notePlayer[0].stop(); 
           }
           */
-          notePlayer[0].play(currnote);
-
+          if(digitalRead(L1pin) == HIGH) {
+            notePlayer[0].play(currnote);
+          }
+          else {
+            notePlayer[0].stop();
+          }
           //if(!correctNote)
             //notePlayer[0].stop(); 
         } else if (currnote == 0) {
