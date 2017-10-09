@@ -185,7 +185,7 @@ int mainwait = 0; // gap between notes
 int mainnotes_size = sizeof(mainnotes)/sizeof(uint16_t); 
 
 // gap between notes
-int gapdur = 500-QUARTER; 
+int gapdur = 500-QUARTER;
 
 const PROGMEM int note_display[] = {   
   
@@ -752,8 +752,6 @@ const PROGMEM int note_display[] = {
 
 int notedisp_size = sizeof(note_display)/sizeof(uint16_t); 
 
-//int notedisp_size = 40*8; 
-
 int dispstart = notedisp_size-8; 
 int dispstart2 = notedisp_size-8; 
 int dispend = notedisp_size-1;
@@ -772,6 +770,20 @@ int noteIdx;
 
 long startTime;  
 
+int L1 = B11000000; int L1pin = 12; 
+int L2 = B00110000; int L2pin = 13; 
+int R1 = B00001100; int R1pin = A6; 
+int R2 = B00000011; int R2pin = A7; 
+
+int playerNote = 0; 
+int correctNote = false;
+
+int score = 0; 
+
+bool checkInput = false;
+
+bool demo = true;
+
 void setup() {
   // put your setup code here, to run once:
   for(int col = 0; col < 8; col++) {
@@ -784,11 +796,14 @@ void setup() {
     digitalWrite(rows[row], HIGH); 
   }
 
+  pinMode(L1pin, INPUT);
+  pinMode(L2pin, INPUT);
+  pinMode(R1pin, INPUT);
+  pinMode(R2pin, INPUT);
+
   notePlayer[0].begin(8);
   notePlayer[1].begin(9);
-
-  //pinMode(speakerPin, OUTPUT); 
-  //noTone(speakerPin);
+ 
   startTime = millis(); 
 }
 
@@ -836,16 +851,15 @@ void displayNotes(PTCB tcb) {
       if(currtime < prevtime + 120) {
         for(dispstart = dispstart2; dispstart < dispstart2 + 8; dispstart++) {
           
-          uint16_t dispnote = pgm_read_word_near(note_display + dispstart); 
-          
-          //PORTD = note_display[dispstart];
+          uint16_t dispnote = pgm_read_word_near(note_display + dispstart);           
           PORTD = dispnote; 
-          if(disprow == 6) {
           
-//            if(dispend == notedisp_size-8) {
-//              if(!startMelody)
-//                startMelody = true;
-//            }
+          if(disprow == 6) { 
+            playerNote = dispnote;
+            
+            if(!checkInput)
+              checkInput = true;
+              
             PORTD = B11111111;
           }
           digitalWrite(rows[disprow], LOW); 
@@ -886,22 +900,49 @@ void displayNotes(PTCB tcb) {
 
 void ticker(PTCB tcb) {
   MOS_Continue(tcb);    
-  while(1) {
+  while(1) { 
     if(!startMelody && millis() >= startTime + 875) {
       startMelody = true;
     }
+    else if (!demo && startMelody && checkInput) {  
+      bool L1val = digitalRead(L1pin) == HIGH; 
+      bool L2val = digitalRead(L2pin) == HIGH; 
+      bool R1val = digitalRead(R1pin) == HIGH; 
+      bool R2val = digitalRead(R2pin) == HIGH; 
+
+      switch(playerNote) {
+        case B11000000:
+          correctNote = L1val && (!L2val) && (!R1val) && (!R2val); 
+          break;
+        case B00110000:
+          correctNote = L2val && (!L1val) && (!R1val) && (!R2val); 
+          break;
+        case B00001100:
+          correctNote = R1val && (!L2val) && (!L1val) && (!R2val); 
+          break;
+        case B00000011:
+          correctNote = R2val && (!L2val) && (!R1val) && (!L1val); 
+          break;
+        case B00000000:
+          correctNote = (!R2val) && (!L2val) && (!R1val) && (!L1val); 
+          break;
+      }
+
+      checkInput = false;
+    }
     else {
-      MOS_Break(tcb);
-    } 
+       MOS_Break(tcb);
+    }
   }
 }
 
-void PlayMelody1(PTCB tcb) {
+void BGMelody(PTCB tcb) {
   MOS_Continue(tcb);    
   bgidx= 0; 
+  
   while (1) { 
-    MOS_WaitForCond(tcb, startMelody);
-    if(bgidx < bgnotes_size) {
+    //MOS_WaitForCond(tcb, startMelody);
+    if(startMelody && bgidx < bgnotes_size) {
       //int currnote = bgnotes[bgidx]; 
       uint16_t currnote = pgm_read_word_near(bgnotes + bgidx); 
 
@@ -923,28 +964,34 @@ void PlayMelody1(PTCB tcb) {
      
   }
 }
-void PlayMelody2(PTCB tcb) {
+void PlayerMelody(PTCB tcb) {
   MOS_Continue(tcb);   
   mainidx = 0; 
 
   while (1) {
-    MOS_WaitForCond(tcb, startMelody);
-    if(mainidx < mainnotes_size) {
-      //int currnote = mainnotes[mainidx]; 
+    //MOS_WaitForCond(tcb, startMelody);
+    if(startMelody && mainidx < mainnotes_size) { 
       uint16_t currnote = pgm_read_word_near(mainnotes + mainidx); 
 
-      if(currnote > 0) {
-        notePlayer[0].play(currnote);
-      } else if (currnote == 0) {
-        notePlayer[0].stop();
-      }
-
-      uint16_t dur = pgm_read_word_near(maindur+ mainidx); 
-      MOS_Delay(tcb, dur);
-      notePlayer[0].stop();
-      MOS_Delay(tcb,gapdur); 
+        if(currnote > 0) {
+          if(demo || correctNote) {
+            notePlayer[0].play(currnote);
+            score++; 
+          } else {
+            notePlayer[0].stop(); 
+          }
+        } else if (currnote == 0) {
+          notePlayer[0].stop();
+        }
       
-      mainidx++; 
+        
+        uint16_t dur = pgm_read_word_near(maindur+ mainidx); 
+        MOS_Delay(tcb, dur);
+        notePlayer[0].stop();
+        MOS_Delay(tcb,gapdur); 
+        
+        mainidx++; 
+      
     }
 
     else {
@@ -959,7 +1006,7 @@ void loop() {
   //testloop();  
   MOS_Call(ticker); 
   MOS_Call(displayNotes);
-  MOS_Call(PlayMelody1);
-  MOS_Call(PlayMelody2);
+  MOS_Call(BGMelody);
+  MOS_Call(PlayerMelody);
 
 }
