@@ -779,7 +779,7 @@ int score = 0;
 bool checkInput = false;
 
 // demo mode: just plays the song 
-bool demo = true;
+bool demo = false;
 
 void setup() {
   // put your setup code here, to run once:
@@ -856,7 +856,13 @@ void displayNotes(PTCB tcb) {
           PORTD = dispnote; 
           
           if(disprow == 6) { 
-            playerNote = dispnote;
+            int L1val = ((digitalRead(L1pin))&0x11) << 6 ; 
+            int L2val = ((digitalRead(L2pin))&0x11) << 4 ; 
+            int R1val = ((digitalRead(R1pin))&0x11) << 2 ; 
+            int R2val = digitalRead(R2pin)&0x11; 
+
+            correctNote = (dispnote == (L1val+L2val+R1val+R2val));
+            //playerNote = dispnote;
             
             if(!checkInput)
               checkInput = true;
@@ -905,30 +911,39 @@ void ticker(PTCB tcb) {
       startMelody = true;
     }
     else if (!demo && startMelody && checkInput) {  
+      MOS_Break(tcb);//temp
+      /*
       bool L1val = digitalRead(L1pin) == HIGH; 
       bool L2val = digitalRead(L2pin) == HIGH; 
       bool R1val = digitalRead(R1pin) == HIGH; 
       bool R2val = digitalRead(R2pin) == HIGH; 
 
       switch(playerNote) {
-        case B11000000:
-          correctNote = L1val && (!L2val) && (!R1val) && (!R2val); 
-          break;
+        
         case B00110000:
-          correctNote = L2val && (!L1val) && (!R1val) && (!R2val); 
+          //correctNote = L2val && (!L1val) && (!R1val) && (!R2val); 
+          correctNote = L2val;
+          break;
+        case B11000000:
+          //correctNote = L1val && (!L2val) && (!R1val) && (!R2val); 
+          correctNote = L1val;
           break;
         case B00001100:
-          correctNote = R1val && (!L2val) && (!L1val) && (!R2val); 
+          //correctNote = R1val && (!L2val) && (!L1val) && (!R2val); 
+          correctNote = R1val;
           break;
         case B00000011:
-          correctNote = R2val && (!L2val) && (!R1val) && (!L1val); 
+          //correctNote = R2val && (!L2val) && (!R1val) && (!L1val); 
+          correctNote = R2val;
           break;
         case B00000000:
-          correctNote = (!R2val) && (!L2val) && (!R1val) && (!L1val); 
+          //correctNote = (!R2val) && (!L2val) && (!R1val) && (!L1val); 
           break;
+          
       }
 
       checkInput = false;
+      */
     }
     else {
        MOS_Break(tcb);
@@ -972,12 +987,18 @@ void PlayerMelody(PTCB tcb) {
       uint16_t currnote = pgm_read_word_near(mainnotes + mainidx); 
 
         if(currnote > 0) {
+          /*
           if(demo || correctNote) {
             notePlayer[0].play(currnote);
             score++; 
           } else {
             notePlayer[0].stop(); 
           }
+          */
+          notePlayer[0].play(currnote);
+
+          //if(!correctNote)
+            //notePlayer[0].stop(); 
         } else if (currnote == 0) {
           notePlayer[0].stop();
         }
