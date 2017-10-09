@@ -5,7 +5,6 @@
 #include "pitches.h" 
 #include "durations.h" 
 
-// https://electronics.stackexchange.com/questions/67087/analogread0-or-analogreada0
 
 int columns[] = {7,6,5,4,3,2,1,0}; 
 int rows[] = {A0,A1,A2,A3,A4,A5,10,11}; 
@@ -95,7 +94,6 @@ const PROGMEM uint16_t bgdur[] = {
               };
 int bgidx = 0; 
 int bgstart = millis(); 
-int bgwait = 0;  // gap between notes
 int bgnotes_size = sizeof(bgnotes)/sizeof(uint16_t); 
 
 // NOTES FOR PLAYER MUSIC
@@ -181,12 +179,12 @@ const PROGMEM uint16_t maindur[] = {
                 };
 int mainidx = 0; 
 int mainstart = millis(); 
-int mainwait = 0; // gap between notes
 int mainnotes_size = sizeof(mainnotes)/sizeof(uint16_t); 
 
-// gap between notes
+// gap between notes, useful for when you're playing two of the same note in succession
 int gapdur = 500-QUARTER;
 
+// where the game level is stored
 const PROGMEM int note_display[] = {   
   
   B00000000, 
@@ -753,16 +751,15 @@ const PROGMEM int note_display[] = {
 int notedisp_size = sizeof(note_display)/sizeof(uint16_t); 
 
 int dispstart = notedisp_size-8; 
+// need redundant variable because of the specifics of how the scheduling functions work
 int dispstart2 = notedisp_size-8; 
-int dispend = notedisp_size-1;
 int disprow;   
 bool startMelody = false;
 
 Tone notePlayer[2];
 
 int row; 
-int col; 
-int OKidx;
+int col;  
 long prevtime; 
 long currtime; 
 
@@ -779,9 +776,9 @@ int playerNote = 0;
 int correctNote = false;
 
 int score = 0; 
-
 bool checkInput = false;
 
+// demo mode: just plays the song 
 bool demo = true;
 
 void setup() {
@@ -848,6 +845,10 @@ void displayNotes(PTCB tcb) {
     disprow = 0; 
     
     if(dispstart2 >= 0) {
+      // notes fall at a fixed rate, which is this case is approximately the length of a 
+      // sixteenth note (the smallest note unit for the whole song)
+      // ideally it would be exactly the length of a sixteenth note, but I had to somehow account for the 
+      // accumulated delay (line 869) that is a consequence of running the LED display
       if(currtime < prevtime + 120) {
         for(dispstart = dispstart2; dispstart < dispstart2 + 8; dispstart++) {
           
@@ -875,8 +876,7 @@ void displayNotes(PTCB tcb) {
       
       else {
         dispstart2--;  
-        dispstart--; 
-        dispend--; 
+
         prevtime = currtime;
       } 
       
@@ -940,8 +940,7 @@ void BGMelody(PTCB tcb) {
   MOS_Continue(tcb);    
   bgidx= 0; 
   
-  while (1) { 
-    //MOS_WaitForCond(tcb, startMelody);
+  while (1) {  
     if(startMelody && bgidx < bgnotes_size) {
       //int currnote = bgnotes[bgidx]; 
       uint16_t currnote = pgm_read_word_near(bgnotes + bgidx); 
@@ -968,8 +967,7 @@ void PlayerMelody(PTCB tcb) {
   MOS_Continue(tcb);   
   mainidx = 0; 
 
-  while (1) {
-    //MOS_WaitForCond(tcb, startMelody);
+  while (1) { 
     if(startMelody && mainidx < mainnotes_size) { 
       uint16_t currnote = pgm_read_word_near(mainnotes + mainidx); 
 
