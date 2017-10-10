@@ -766,6 +766,7 @@ int R1 = B00001100; int R1pin = A6;
 int R2 = B00000011; int R2pin = A7;
 
 // user's score
+int scoretracker[480];
 long score = 0;
 int scoreones = 0;
 int scoretens = 0;
@@ -982,12 +983,20 @@ void displayNotes(PTCB tcb) {
     }
     else { 
       if(!displayScore && dispstart2 < 0) { 
-        int temp = map(score, 0, 90000, 0, 99);
-        if(score > 90000) {
-          temp = 99;
+//        int temp = map(score, 0, 90000, 0, 99);
+//        if(score > 90000) {
+//          temp = 99;
+//        }
+//        scoreones = temp%10;
+//        scoretens = (temp-scoreones)/10;
+        score = 0; 
+        for(int i = 0; i < 480; i++) {
+          score += scoretracker[i];
         }
-        scoreones = temp%10;
-        scoretens = (temp-scoreones)/10;
+
+        score = map(score, 0, 393, 0, 99);
+        scoreones = score%10;
+        scoretens = (score-scoreones)/10;
         
         displayScore = true;
       }
@@ -1093,16 +1102,9 @@ void PlayerPlaying(PTCB tcb) {
         if (myPin)  {
           int noteplay = pgm_read_word_near(expectedNotes + expidx);
           notePlayer[0].play(noteplay);
-          score++;
+//          score++;
+          scoretracker[expidx] = 1;
 
-          // lol i was too lazy to make a better scoring system
-//          scoreones++;
-//          if(scoreones>=10) {
-//            scoreones-=10; 
-//            if(scoretens < 9) {
-//              scoretens++;
-//            }
-//          }
         }
 
         else {
