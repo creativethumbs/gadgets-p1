@@ -767,6 +767,8 @@ int R2 = B00000011; int R2pin = A7;
 
 // user's score
 int score = 0;
+int scoreones = 0;
+int scoretens = 0;
 int displayScore = false;
 
 // demo mode: just plays the song
@@ -777,8 +779,7 @@ int pinRead;
 bool startDisplay = true;
 bool startMelody = false;
 
-int scoreloopidx = 0;
-
+int scoreloopidx = 0; 
 
 int numbers [10][8] = {
   { // 0
@@ -905,7 +906,7 @@ void setup() {
   notePlayer[0].begin(8);
   notePlayer[1].begin(9);
 
-  startTime = millis();
+  startTime = millis(); 
 
 }
 
@@ -980,7 +981,7 @@ void displayNotes(PTCB tcb) {
 
     }
     else { 
-      if(dispstart2 < 0) {
+      if(dispstart2 < 0) { 
         displayScore = true;
       }
       MOS_Break(tcb);
@@ -997,10 +998,50 @@ void ticker(PTCB tcb) {
     else if (!demo && startMelody && expidx < expectedNotes_size) {
       MOS_Delay(tcb, 125);
       expidx++;
+      
+      
     }
     else {
       MOS_Break(tcb);
     }
+  }
+}
+
+void PlayerMelody(PTCB tcb) {
+  MOS_Continue(tcb);
+  mainidx = 0;
+
+  while (1) {
+    if (startMelody && mainidx < mainnotes_size) {
+      uint16_t currnote = pgm_read_word_near(mainnotes + mainidx);
+
+      if (demo || (!demo && mainidx < 16 )) {
+        if (currnote > 0) {
+          notePlayer[0].play(currnote);
+
+        } else if (currnote == 0) {
+          notePlayer[0].stop();
+        }
+
+
+        uint16_t dur = pgm_read_word_near(maindur + mainidx);
+        MOS_Delay(tcb, dur);
+        notePlayer[0].stop();
+        MOS_Delay(tcb, gapdur);
+
+        mainidx++;
+      }
+
+      else {
+        MOS_Break(tcb);
+      }
+
+    }
+
+    else {
+      MOS_Break(tcb);
+    }
+
   }
 }
 
@@ -1043,9 +1084,17 @@ void PlayerPlaying(PTCB tcb) {
         int myPin = digitalRead(pinRead);
 
         if (myPin)  {
-
           int noteplay = pgm_read_word_near(expectedNotes + expidx);
           notePlayer[0].play(noteplay);
+
+          // lol i was too lazy to make a better scoring system
+          scoreones++;
+          if(scoreones>=10) {
+            scoreones-=10; 
+            if(scoretens < 9) {
+              scoretens++;
+            }
+          }
         }
 
         else {
@@ -1065,17 +1114,15 @@ void PlayerPlaying(PTCB tcb) {
 }
 
 void ShowScore(PTCB tcb) {
-  MOS_Continue(tcb);
-  mainidx = 0;
-  scoreloopidx = 0;
+  MOS_Continue(tcb);  
 
   while (1) {
-    if (displayScore) {
-      int scoretens = score / 10;
-      int scoreones = score - (scoretens * 10);
+    if (displayScore) { 
 
-      for (scoreloopidx = 0; scoreloopidx < 8; scoreloopidx++) {
-        int value = (numbers[scoretens][scoreloopidx]) << 4;
+      for (scoreloopidx = 0; scoreloopidx < 8; scoreloopidx++) { 
+        int value = 0; 
+        if(scoretens > 0)
+          value += (numbers[scoretens][scoreloopidx]) << 4;
         value += numbers[scoreones][scoreloopidx];
 
         PORTD = value;
@@ -1086,52 +1133,15 @@ void ShowScore(PTCB tcb) {
         PORTD = 0;
         digitalWrite(rows[scoreloopidx], HIGH);
       }
-    }
-
-    else {
-      MOS_Break(tcb);
-    }
+    } 
+    
+    MOS_Break(tcb);
+    
   }
 
 }
 
-void PlayerMelody(PTCB tcb) {
-  MOS_Continue(tcb);
-  mainidx = 0;
 
-  while (1) {
-    if (startMelody && mainidx < mainnotes_size) {
-      uint16_t currnote = pgm_read_word_near(mainnotes + mainidx);
-
-      if (demo || (!demo && mainidx < 16 )) {
-        if (currnote > 0) {
-          notePlayer[0].play(currnote);
-
-        } else if (currnote == 0) {
-          notePlayer[0].stop();
-        }
-
-
-        uint16_t dur = pgm_read_word_near(maindur + mainidx);
-        MOS_Delay(tcb, dur);
-        notePlayer[0].stop();
-        MOS_Delay(tcb, gapdur);
-
-        mainidx++;
-      }
-
-      else {
-        MOS_Break(tcb);
-      }
-
-    }
-
-    else {
-      MOS_Break(tcb);
-    }
-
-  }
-}
 
 
 void loop() {
