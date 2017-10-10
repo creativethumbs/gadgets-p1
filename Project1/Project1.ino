@@ -766,7 +766,7 @@ int R1 = B00001100; int R1pin = A6;
 int R2 = B00000011; int R2pin = A7;
 
 // user's score
-int score = 0;
+long score = 0;
 int scoreones = 0;
 int scoretens = 0;
 int displayScore = false;
@@ -981,7 +981,14 @@ void displayNotes(PTCB tcb) {
 
     }
     else { 
-      if(dispstart2 < 0) { 
+      if(!displayScore && dispstart2 < 0) { 
+        int temp = map(score, 0, 90000, 0, 99);
+        if(score > 90000) {
+          temp = 99;
+        }
+        scoreones = temp%10;
+        scoretens = (temp-scoreones)/10;
+        
         displayScore = true;
       }
       MOS_Break(tcb);
@@ -992,7 +999,7 @@ void displayNotes(PTCB tcb) {
 void ticker(PTCB tcb) {
   MOS_Continue(tcb);
   while (1) {
-    if (!startMelody) {
+    if (!startMelody && digitalRead(12)) {
       startMelody = true;
     }
     else if (!demo && startMelody && expidx < expectedNotes_size) {
@@ -1086,15 +1093,16 @@ void PlayerPlaying(PTCB tcb) {
         if (myPin)  {
           int noteplay = pgm_read_word_near(expectedNotes + expidx);
           notePlayer[0].play(noteplay);
+          score++;
 
           // lol i was too lazy to make a better scoring system
-          scoreones++;
-          if(scoreones>=10) {
-            scoreones-=10; 
-            if(scoretens < 9) {
-              scoretens++;
-            }
-          }
+//          scoreones++;
+//          if(scoreones>=10) {
+//            scoreones-=10; 
+//            if(scoretens < 9) {
+//              scoretens++;
+//            }
+//          }
         }
 
         else {
