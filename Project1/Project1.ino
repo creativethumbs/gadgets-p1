@@ -376,11 +376,7 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00110000,
   B11000000,
-  B11000000,  // BOSS BATTLE
-
-//  B00000000,
-//  B00000000,
-//  B00000000,
+  B11000000, 
 
   B00001100,
   B00001100,
@@ -740,7 +736,9 @@ const PROGMEM int note_display[] = {
   B00000000,
   B00000000,
   B00000000,
-  B00000000
+  B00000000,
+
+  B00000000 // need this extra one here
 };
 
 int notedisp_size = sizeof(note_display) / sizeof(uint16_t);
@@ -857,14 +855,14 @@ void displayNotes(PTCB tcb) {
           uint16_t dispnote = pgm_read_word_near(note_display + dispstart);
           PORTD = dispnote;
 
-//          if (disprow == 6) {
-//            PORTD = B11111111;
-//          }
-
-            // checking whether lights are synchronized
-          if (disprow != 6) {
-            PORTD = 0;
+          if (disprow == 6) {
+            PORTD = B11111111;
           }
+
+            // debugging; checks whether lights are synchronized
+//          if (disprow != 6) {
+//            PORTD = 0;
+//          }
           
           digitalWrite(rows[disprow], LOW);
 
