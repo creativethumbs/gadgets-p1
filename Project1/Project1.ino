@@ -2,192 +2,201 @@
 #include <avr/pgmspace.h>
 #include <Tone.h>
 #include <MOS.h>
-#include "pitches.h" 
-#include "durations.h" 
+#include "pitches.h"
+#include "durations.h"
 
 
-int columns[] = {7,6,5,4,3,2,1,0}; 
-int rows[] = {A0,A1,A2,A3,A4,A5,10,11}; 
+int columns[] = {7, 6, 5, 4, 3, 2, 1, 0};
+int rows[] = {A0, A1, A2, A3, A4, A5, 10, 11};
 
 // NOTES FOR BACKGROUND MUSIC
 const PROGMEM uint16_t bgnotes[] = {
 
-              NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, 
-                NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-                NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, 
-                NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-                
-                NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, 
-                NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-                NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, 
-                NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-            
-                NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, 
-                NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-                NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, 
-                NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4, 
-              
-                NOTE_D4, NOTE_D4, 0, NOTE_D4, NOTE_D4, NOTE_D4, 0, NOTE_D4, 
-                NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4,
-                NOTE_A4, NOTE_A4, 0, NOTE_A4, NOTE_A4, NOTE_A4, NOTE_GS4, NOTE_A4, 
-                NOTE_E4, 0, 
-              
-                NOTE_D4, NOTE_D4, 0, NOTE_D4, NOTE_D4, NOTE_D4, 0, NOTE_D4, 
-                NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4,
-                NOTE_A4, NOTE_A4, 0, NOTE_A4, NOTE_A4, NOTE_A4, NOTE_GS4, NOTE_A4, 
-                NOTE_CS5, NOTE_B4, NOTE_A4, NOTE_GS4, 
+  NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4,
+  NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4,
+  NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4,
+  NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4,
 
-                NOTE_FS3, 0, NOTE_FS4, 0, NOTE_FS3, NOTE_FS4, 0, 
-                NOTE_D3, 0, NOTE_D4, 0, NOTE_D3, NOTE_D4, NOTE_D3,
-                NOTE_E3, 0, NOTE_E4, 0, NOTE_E3, NOTE_E4, 0,
-                
-                NOTE_GS3, 0, NOTE_CS4, NOTE_GS3, NOTE_F3, 0, NOTE_CS4,0,
-                
-                
-                NOTE_FS3, 0, NOTE_FS4, 0, NOTE_FS3, NOTE_FS4, 0, 
-                NOTE_CS5, NOTE_B4, NOTE_A4, NOTE_A4, NOTE_FS4, 0, 0,
-                NOTE_D4, NOTE_CS4, NOTE_B3, NOTE_A3, 
-                NOTE_CS4, NOTE_F3, NOTE_FS3,
-                0,
-                0
-                };
+  NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4,
+  NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4,
+  NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4,
+  NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4,
+
+  NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4,
+  NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4,
+  NOTE_CS4, NOTE_CS4, 0, NOTE_CS4, NOTE_CS4, NOTE_CS4, 0, NOTE_CS4,
+  NOTE_E4, NOTE_E4, 0, NOTE_E4, NOTE_E4, NOTE_E4, 0, NOTE_E4,
+
+  NOTE_D4, NOTE_D4, 0, NOTE_D4, NOTE_D4, NOTE_D4, 0, NOTE_D4,
+  NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4,
+  NOTE_A4, NOTE_A4, 0, NOTE_A4, NOTE_A4, NOTE_A4, NOTE_GS4, NOTE_A4,
+  NOTE_E4, 0,
+
+  NOTE_D4, NOTE_D4, 0, NOTE_D4, NOTE_D4, NOTE_D4, 0, NOTE_D4,
+  NOTE_FS4, NOTE_FS4, 0, NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, NOTE_FS4,
+  NOTE_A4, NOTE_A4, 0, NOTE_A4, NOTE_A4, NOTE_A4, NOTE_GS4, NOTE_A4,
+  NOTE_CS5, NOTE_B4, NOTE_A4, NOTE_GS4,
+
+  NOTE_FS3, 0, NOTE_FS4, 0, NOTE_FS3, NOTE_FS4, 0,
+  NOTE_D3, 0, NOTE_D4, 0, NOTE_D3, NOTE_D4, NOTE_D3,
+  NOTE_E3, 0, NOTE_E4, 0, NOTE_E3, NOTE_E4, 0,
+
+  NOTE_GS3, 0, NOTE_CS4, NOTE_GS3, NOTE_F3, 0, NOTE_CS4, 0,
+
+
+  NOTE_FS3, 0, NOTE_FS4, 0, NOTE_FS3, NOTE_FS4, 0,
+  NOTE_CS5, NOTE_B4, NOTE_A4, NOTE_A4, NOTE_FS4, 0, 0,
+  NOTE_D4, NOTE_CS4, NOTE_B3, NOTE_A3,
+  NOTE_CS4, NOTE_F3, NOTE_FS3,
+  0,
+  0
+};
 const PROGMEM uint16_t bgdur[] = {
 
-           EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-               
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
-           
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
-              DOT_HALF, QUARTER,
-            
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
-              QUARTER, QUARTER, QUARTER, QUARTER, 
-      
-              EIGHTH, EIGHTH, EIGHTH, QUARTER, EIGHTH, EIGHTH, EIGHTH, 
-              EIGHTH, EIGHTH, EIGHTH, QUARTER, EIGHTH, EIGHTH, EIGHTH,                  
-              EIGHTH, EIGHTH, EIGHTH, QUARTER, EIGHTH, EIGHTH, EIGHTH,
-              
-              EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,EIGHTH,
-              
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
 
-              EIGHTH, EIGHTH, EIGHTH, QUARTER, EIGHTH, EIGHTH, EIGHTH,
-              EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, DOT_QUARTER, SIXTEENTH, EIGHTH,
-              QUARTER, QUARTER, QUARTER, QUARTER, 
-              QUARTER, QUARTER, WHOLE, 
-              HALF, 
-              WHOLE
-              };
-int bgidx = 0; 
-int bgstart = millis(); 
-int bgnotes_size = sizeof(bgnotes)/sizeof(uint16_t); 
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
 
-// NOTES FOR PLAYER MUSIC
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  DOT_HALF, QUARTER,
+
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+  QUARTER, QUARTER, QUARTER, QUARTER,
+
+  EIGHTH, EIGHTH, EIGHTH, QUARTER, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, QUARTER, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, QUARTER, EIGHTH, EIGHTH, EIGHTH,
+
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH,
+
+
+  EIGHTH, EIGHTH, EIGHTH, QUARTER, EIGHTH, EIGHTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, DOT_QUARTER, SIXTEENTH, EIGHTH,
+  QUARTER, QUARTER, QUARTER, QUARTER,
+  QUARTER, QUARTER, WHOLE,
+  HALF,
+  WHOLE
+};
+int bgidx = 0;
+int bgstart = millis();
+int bgnotes_size = sizeof(bgnotes) / sizeof(uint16_t);
+
+// NOTES FOR PLAYER MUSIC (used in demo mode)
 const PROGMEM uint16_t mainnotes[] = {
- 
-                NOTE_FS3, NOTE_FS3, NOTE_FS3, NOTE_FS3, 
-                NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
-                NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
-                NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
-               
-                NOTE_FS3, NOTE_FS3, NOTE_FS3, NOTE_FS3, 
-                NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
-                NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
-                NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, 
-             
-                NOTE_FS3, NOTE_FS3, NOTE_A3, NOTE_FS3,NOTE_A3,NOTE_FS3,NOTE_A3,NOTE_FS3,NOTE_A3,
-                NOTE_E3, NOTE_E3, NOTE_GS3, NOTE_E3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_E3,NOTE_GS3,
-                NOTE_A2, NOTE_A2, NOTE_CS3, NOTE_A2, NOTE_CS3,NOTE_A2, NOTE_CS3,NOTE_A2, NOTE_CS3,
-                NOTE_E3, NOTE_E3, NOTE_GS3, NOTE_E3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_E3,NOTE_GS3,
-               
-                NOTE_B3, 
-                NOTE_D4, NOTE_FS4, NOTE_GS4, 
-                NOTE_FS4, 
-                NOTE_GS4, NOTE_GS4, NOTE_GS4, NOTE_E4, NOTE_GS4, NOTE_GS4, NOTE_GS4, NOTE_GS4, NOTE_E4, NOTE_GS4, 
-                
-                NOTE_B3, 
-                NOTE_D4, NOTE_FS4, NOTE_GS4, 
-                NOTE_FS4,
-                NOTE_CS4, NOTE_E4, NOTE_F3, NOTE_B3, 
 
-                NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS5, NOTE_CS5, NOTE_A4, NOTE_FS4, 0, NOTE_FS4, NOTE_A4, NOTE_CS5, NOTE_FS5, NOTE_CS5, 0,
-                NOTE_D5, NOTE_D5, NOTE_CS5, NOTE_D5, NOTE_E5, NOTE_D5, NOTE_CS5, 0, 
-                
-                NOTE_B4, NOTE_B4, NOTE_A4, NOTE_B4, NOTE_CS5, NOTE_B4, NOTE_A4, NOTE_A4, NOTE_GS4, NOTE_A4, NOTE_B4, NOTE_A4, NOTE_GS4, NOTE_GS4, NOTE_F4, NOTE_GS4, NOTE_A4, NOTE_B4, NOTE_CS5, 0,0, 
-                
-                
-                NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS5, NOTE_CS5, NOTE_A4, NOTE_FS4, 0, NOTE_FS4, NOTE_A4, NOTE_CS5, NOTE_FS5, NOTE_CS5, 0,                
-                NOTE_A5, NOTE_GS5, NOTE_FS5, NOTE_CS5, NOTE_A4, 0, 0,
-                NOTE_A5, NOTE_CS5, NOTE_GS5, NOTE_FS5, NOTE_GS5, 0, NOTE_GS5, NOTE_A5,
-                NOTE_F5, NOTE_FS5, NOTE_FS5, 
-                0, 
-                NOTE_FS4, NOTE_FS4, NOTE_FS4, 0,0,0
-                
-                }; 
+  NOTE_FS3, NOTE_FS3, NOTE_FS3, NOTE_FS3,
+  NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3,
+  NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
+  NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3,
+
+  NOTE_FS3, NOTE_FS3, NOTE_FS3, NOTE_FS3,
+  NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3,
+  NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
+  NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3,
+
+  NOTE_FS3, NOTE_FS3, NOTE_A3, NOTE_FS3, NOTE_A3, NOTE_FS3, NOTE_A3, NOTE_FS3, NOTE_A3,
+  NOTE_E3, NOTE_E3, NOTE_GS3, NOTE_E3, NOTE_GS3, NOTE_E3, NOTE_GS3, NOTE_E3, NOTE_GS3,
+  NOTE_A2, NOTE_A2, NOTE_CS3, NOTE_A2, NOTE_CS3, NOTE_A2, NOTE_CS3, NOTE_A2, NOTE_CS3,
+  NOTE_E3, NOTE_E3, NOTE_GS3, NOTE_E3, NOTE_GS3, NOTE_E3, NOTE_GS3, NOTE_E3, NOTE_GS3,
+
+  NOTE_B3,
+  NOTE_D4, NOTE_FS4, NOTE_GS4,
+  NOTE_FS4,
+  NOTE_GS4, NOTE_GS4, NOTE_GS4, NOTE_E4, NOTE_GS4, NOTE_GS4, NOTE_GS4, NOTE_GS4, NOTE_E4, NOTE_GS4,
+
+  NOTE_B3,
+  NOTE_D4, NOTE_FS4, NOTE_GS4,
+  NOTE_FS4,
+  NOTE_CS4, NOTE_E4, NOTE_F3, NOTE_B3,
+
+  NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS5, NOTE_CS5, NOTE_A4, NOTE_FS4, 0, NOTE_FS4, NOTE_A4, NOTE_CS5, NOTE_FS5, NOTE_CS5, 0,
+  NOTE_D5, NOTE_D5, NOTE_CS5, NOTE_D5, NOTE_E5, NOTE_D5, NOTE_CS5, 0,
+
+  NOTE_B4, NOTE_B4, NOTE_A4, NOTE_B4, NOTE_CS5, NOTE_B4, NOTE_A4, NOTE_A4, NOTE_GS4, NOTE_A4, NOTE_B4, NOTE_A4, NOTE_GS4, NOTE_GS4, NOTE_F4, NOTE_GS4, NOTE_A4, NOTE_B4, NOTE_CS5, 0, 0,
+
+
+  NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS5, NOTE_CS5, NOTE_A4, NOTE_FS4, 0, NOTE_FS4, NOTE_A4, NOTE_CS5, NOTE_FS5, NOTE_CS5, 0,
+  NOTE_A5, NOTE_GS5, NOTE_FS5, NOTE_CS5, NOTE_A4, 0, 0,
+  NOTE_A5, NOTE_CS5, NOTE_GS5, NOTE_FS5, NOTE_GS5, 0, NOTE_GS5, NOTE_A5,
+  NOTE_F5, NOTE_FS5, NOTE_FS5,
+  0,
+  NOTE_FS4, NOTE_FS4, NOTE_FS4, 0, 0, 0
+
+};
 const PROGMEM uint16_t maindur[] = {
 
-                QUARTER, QUARTER, QUARTER, QUARTER, 
-                QUARTER, QUARTER, QUARTER, QUARTER,
-                QUARTER, QUARTER, QUARTER, QUARTER,
-                QUARTER, QUARTER, QUARTER, QUARTER, 
-              
-                QUARTER, QUARTER, QUARTER, QUARTER, 
-                QUARTER, QUARTER, QUARTER, QUARTER,
-                QUARTER, QUARTER, QUARTER, QUARTER,
-                QUARTER, QUARTER, QUARTER, QUARTER, 
-            
-                EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH,SIXTEENTH, EIGHTH,
-                EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH,SIXTEENTH, EIGHTH,
-                EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH,SIXTEENTH, EIGHTH,
-                EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH,SIXTEENTH, EIGHTH,
-               
-                WHOLE,
-                DOT_HALF, EIGHTH, EIGHTH,
-                WHOLE,
-                EIGHTH, SIXTEENTH, SIXTEENTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, SIXTEENTH, EIGHTH, EIGHTH,
-                
-                WHOLE,
-                DOT_HALF, EIGHTH, EIGHTH,
-                WHOLE,
-                QUARTER, QUARTER, QUARTER, QUARTER, 
+  QUARTER, QUARTER, QUARTER, QUARTER,
+  QUARTER, QUARTER, QUARTER, QUARTER,
+  QUARTER, QUARTER, QUARTER, QUARTER,
+  QUARTER, QUARTER, QUARTER, QUARTER,
 
-                EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, EIGHTH, SIXTEENTH, SIXTEENTH, 
-                EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, HALF, SIXTEENTH,
-                
-                EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, DOT_EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, DOT_EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, DOT_QUARTER,SIXTEENTH,EIGHTH,                
-                
-                EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, EIGHTH, SIXTEENTH, SIXTEENTH,
-                EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, DOT_QUARTER,SIXTEENTH, EIGHTH, 
-                EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, DOT_QUARTER, SIXTEENTH, SIXTEENTH, SIXTEENTH, 
-                DOT_QUARTER, EIGHTH, WHOLE,
-                DOT_QUARTER,
-                SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, DOT_QUARTER, HALF
-                };
-int mainidx = 0; 
-int mainstart = millis(); 
-int mainnotes_size = sizeof(mainnotes)/sizeof(uint16_t); 
+  QUARTER, QUARTER, QUARTER, QUARTER,
+  QUARTER, QUARTER, QUARTER, QUARTER,
+  QUARTER, QUARTER, QUARTER, QUARTER,
+  QUARTER, QUARTER, QUARTER, QUARTER,
+
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH, SIXTEENTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH, SIXTEENTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH, SIXTEENTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, EIGHTH, SIXTEENTH, EIGHTH,
+
+  WHOLE,
+  DOT_HALF, EIGHTH, EIGHTH,
+  WHOLE,
+  EIGHTH, SIXTEENTH, SIXTEENTH, EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, SIXTEENTH, EIGHTH, EIGHTH,
+
+  WHOLE,
+  DOT_HALF, EIGHTH, EIGHTH,
+  WHOLE,
+  QUARTER, QUARTER, QUARTER, QUARTER,
+
+  EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, EIGHTH, SIXTEENTH, SIXTEENTH,
+  EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, HALF, SIXTEENTH,
+
+  EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, DOT_EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, DOT_EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, DOT_QUARTER, SIXTEENTH, EIGHTH,
+
+  EIGHTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, EIGHTH, SIXTEENTH, SIXTEENTH,
+  EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, DOT_QUARTER, SIXTEENTH, EIGHTH,
+  EIGHTH, EIGHTH, EIGHTH, SIXTEENTH, DOT_QUARTER, SIXTEENTH, SIXTEENTH, SIXTEENTH,
+  DOT_QUARTER, EIGHTH, WHOLE,
+  DOT_QUARTER,
+  SIXTEENTH, SIXTEENTH, SIXTEENTH, SIXTEENTH, DOT_QUARTER, HALF
+};
+
+// NOTES EXPECTED AT EVERY POINT IN THE GAME
+const PROGMEM int expectedNotes[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_FS3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_A2,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_FS4,NOTE_FS4,NOTE_GS4,NOTE_GS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_E4,NOTE_E4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_E4,NOTE_E4,NOTE_GS4,NOTE_GS4,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_FS4,NOTE_FS4,NOTE_GS4,NOTE_GS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_CS4,NOTE_CS4,NOTE_CS4,NOTE_CS4,NOTE_E4,NOTE_E4,NOTE_E4,NOTE_E4,NOTE_F3,NOTE_F3,NOTE_F3,NOTE_F3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_CS5,NOTE_FS5,NOTE_CS5,NOTE_A4,NOTE_FS4,0,NOTE_FS4,NOTE_A4,NOTE_CS5,NOTE_FS5,NOTE_FS5,NOTE_CS5,0,NOTE_D5,NOTE_D5,NOTE_D5,NOTE_CS5,NOTE_D5,NOTE_E5,NOTE_D5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,0,NOTE_B4,NOTE_B4,NOTE_B4,NOTE_A4,NOTE_B4,NOTE_CS5,NOTE_B4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_GS4,NOTE_A4,NOTE_B4,NOTE_A4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_F4,NOTE_GS4,NOTE_A4,NOTE_B4,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,0,0,0,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_CS5,NOTE_FS5,NOTE_CS5,NOTE_A4,NOTE_FS4,0,NOTE_FS4,NOTE_A4,NOTE_CS5,NOTE_FS5,NOTE_FS5,NOTE_CS5,0,NOTE_A5,NOTE_A5,NOTE_GS5,NOTE_GS5,NOTE_FS5,NOTE_FS5,NOTE_CS5,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,0,0,0,NOTE_A5,NOTE_A5,NOTE_CS5,NOTE_CS5,NOTE_GS5,NOTE_GS5,NOTE_FS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,0,NOTE_GS5,NOTE_A5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,0,0,0,0,0,0,NOTE_FS4,NOTE_FS4,NOTE_FS4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+// PINS THAT NEED TO BE READ AT EVERY POINT IN THE GAME
+const PROGMEM int expectedPins[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,A6, A6, A6, A6, A7, A7, A7, A7, A6, A6, A6, A6, A7, A7, A7, A7, 13, 13, 13, 13, A7, A7, A7, A7, 13, 13, 13, 13, A7, A7, A7, A7, 12, 12, 12, 12, A7, A7, A7, A7, 12, 12, 12, 12, A7, A7, A7, A7, 13, 13, 13, 13, A7, A7, A7, A7, 13, 13, 13, 13, A7, A7, A7, A7, 0, 0, 13, 13, A6, A6, A7, A7, A6, A6, A7, A7, A6, A7, A7, A6, A7, A7, 12, 12, 13, 13, A7, A7, 13, 13, A7, A7, 13, A7, A7, 13, A7, A7, 12, 12, 13, 13, A6, A6, 13, 13, A6, A6, 13, A6, A6, 13, A6, A6, 12, 12, 13, 13, A7, A7, 13, 13, A7, A7, 13, A7, A7, 13, A7, A7, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, A6, A6, A7, A7, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, 12, 12, 13, A6, 13, 13, A6, A6, 12, 12, 13, A6, 13, 13, A6, A6, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, A6, A6, A7, A7, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, 13, 13, 13, 13, A7, A7, A7, A7, 12, 12, 12, 12, A6, A6, A6, A6, 0, 0, 0, 12, 12, 13, A6, A7, A6, 13, 12, 0, 12, 13, A6, A7, A7, A6, 0, 13, 13, A6, 13, A6, A7, A6, 13, 13, 13, 13, 13, 13, 13, 13, 0, 0, 13, 13, A6, 13, A6, A7, A6, 13, 13, 13, A6, 13, A6, A7, A6, 13, 13, 13, A6, 12, 13, A6, A7, A6, A6, A6, A6, A6, A6, 0, 0, 0, 0, 12, 12, 13, A6, A7, A6, 13, 12, 0, 12, 13, A6, A7, A7, A6, 0, A7, A7, A6, A6, 13, 13, A6, 12, 12, 12, 12, 12, 12, 0, 0, 0, A7, A7, 13, 13, A6, A6, 13, A6, A6, A6, A6, A6, A6, 0, A6, A7, 12, 12, 12, 12, 12, 12, 13, 13, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, 0, 0, 0, 0, 0, 0, 12, A7, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+int expectedNotes_size = sizeof(expectedNotes) / sizeof(int);
+int expidx = 0;
+
+int mainidx = 0;
+int mainstart = millis();
+int mainnotes_size = sizeof(mainnotes) / sizeof(uint16_t);
 
 // gap between notes, useful for when you're playing two of the same note in succession
-int gapdur = 500-QUARTER;
+int gapdur = 500 - QUARTER;
 
 // where the game level is stored
-const PROGMEM int note_display[] = {   
-  
-  B00000000, 
+const PROGMEM int note_display[] = {
+
+  B00000000,
   B00000000,
   B00000000,
   B00000000,
@@ -203,16 +212,16 @@ const PROGMEM int note_display[] = {
   B00000000,
   B00000000,
   B00000000,
-  B11000000,  
+  B11000000,
 
-  B00000011, 
+  B00000011,
   B11000000,
   B00000000,
   B00000000,
   B00000000,
   B00000000,
   B00000000,
-  B00000000,  
+  B00000000,
 
   B00001100,
   B00001100,
@@ -221,7 +230,7 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00001100,
   B00001100,
-  B00001100,    
+  B00001100,
 
   B00001100,
   B00001100,
@@ -230,7 +239,7 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00001100,
   B00001100,
-  B00001100,  
+  B00001100,
 
   B00110000,
   B00110000,
@@ -239,7 +248,7 @@ const PROGMEM int note_display[] = {
   B11000000,
   B11000000,
   B11000000,
-  B11000000,  
+  B11000000,
 
   B00000011,
   B00001100,
@@ -257,7 +266,7 @@ const PROGMEM int note_display[] = {
   B00110000,
   B00110000,
   B00000011,
-  B00000011,  
+  B00000011,
 
   B00000000,
   B00000000,
@@ -277,14 +286,14 @@ const PROGMEM int note_display[] = {
   B00000011,
   B00000011,
 
-  B00000000,  
+  B00000000,
   B00001100,
   B00000011,
   B00000011,
   B00001100,
   B00110000,
   B11000000,
-  B00000000,  
+  B00000000,
 
   B11000000,
   B00110000,
@@ -293,7 +302,7 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00110000,
   B11000000,
-  B11000000, 
+  B11000000,
 
   B00000000,
 
@@ -304,22 +313,13 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00001100,
   B00001100,
-  B00001100, 
+  B00001100,
 
   B00001100,
   B00000011,
   B00001100,
   B00110000,
-  B11000000, 
-  B00001100,
-  B00110000,  
-  B00110000,  
-
-  B00110000,
-  B00001100,
-  B00000011,
-  B00001100,
-  B00110000,
+  B11000000,
   B00001100,
   B00110000,
   B00110000,
@@ -330,19 +330,8 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00110000,
   B00001100,
-  B00110000,  
-  B00110000, 
-
-  B00000000,   
-
-  B00000000,
-  B00110000,  
   B00110000,
-  B00110000,  
   B00110000,
-  B00110000,  
-  B00110000,
-  B00110000,  
 
   B00110000,
   B00001100,
@@ -351,16 +340,36 @@ const PROGMEM int note_display[] = {
   B00110000,
   B00001100,
   B00110000,
-  B00110000, 
+  B00110000,
 
-  B00000000,  
+  B00000000,
+
+  B00000000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+
+  B00110000,
+  B00001100,
+  B00000011,
+  B00001100,
+  B00110000,
+  B00001100,
+  B00110000,
+  B00110000,
+
+  B00000000,
   B00001100,
   B00000011,
   B00000011,
   B00001100,
   B00110000,
   B11000000,
-  B00000000,   
+  B00000000,
 
   B11000000,
   B00110000,
@@ -374,196 +383,160 @@ const PROGMEM int note_display[] = {
   B00000000,
   B00000000,
   B00000000,
-  
-  B00001100,      
-  B00001100,   
-  B00001100,      
-  B00001100,    
-  B11000000,  
-  B11000000,       
-  B11000000,    
-  B11000000,   
-  
-  B00000011,   
-  B00000011,   
-  B00000011,   
-  B00000011, 
-  B00110000,   
-  B00110000,   
-  B00110000,   
-  B00110000,  
-  
+
   B00001100,
-  B00001100, 
   B00001100,
-  B00001100, 
   B00001100,
-  B00001100,   
-  B00001100,  
   B00001100,
-     
-  B00001100,
-  B00001100, 
-  B00001100,
-  B00001100, 
-  B00001100,
-  B00001100,   
-  B00001100,
-  B00001100, 
-  
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+
   B00000011,
-  B00000011, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+
   B00001100,
-  B00001100,    
-  B00110000,  
-  B00110000,    
-  B00110000,  
-  B00110000,  
-  
-  B00110000,  
-  B00110000,    
-  B00110000,  
-  B00110000,  
-  B00110000,  
-  B00110000,  
-  B00110000,  
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+
+  B00000011,
+  B00000011,
+  B00001100,
+  B00001100,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
   B00110000,
 
   B11000000,
-  B11000000,  
   B11000000,
-  B11000000,  
   B11000000,
-  B11000000,  
   B11000000,
-  B11000000,  
-  
-  B11000000,  
   B11000000,
-  B11000000,  
   B11000000,
-  B11000000,  
   B11000000,
-  B11000000,  
-  B11000000,  
-  
-  B00001100,    
-  B00001100,    
-  B00110000,    
-  B00110000,    
-  B00001100,   
-  B00110000,    
-  B11000000,  
-  B11000000, 
-   
-  B00001100,    
-  B00001100,    
-  B00110000,    
-  B00110000,    
-  B00001100,   
-  B00110000,    
-  B11000000,  
   B11000000,
-  
-  B00001100,
-  B00001100, 
-  B00001100,
-  B00001100, 
-  B00001100,
-  B00001100,   
-  B00001100,
-  B00001100,   
-  
-  B00001100,
-  B00001100, 
-  B00001100,
-  B00001100, 
-  B00001100,
-  B00001100,   
+
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+
   B00001100,
   B00001100,
-   
+  B00110000,
+  B00110000,
+  B00001100,
+  B00110000,
+  B11000000,
+  B11000000,
+
+  B00001100,
+  B00001100,
+  B00110000,
+  B00110000,
+  B00001100,
+  B00110000,
+  B11000000,
+  B11000000,
+
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+
   B00000011,
-  B00000011, 
-  B00001100,
-  B00001100,    
-  B00110000,  
-  B00110000,    
-  B00110000,  
-  B00110000,
-    
-  B00110000,  
-  B00110000,    
-  B00110000,  
-  B00110000,  
-  B00110000,  
-  B00110000,  
-  B00110000,  
-  B00110000,
-  
-  B11000000,  
-  B11000000,
-  B11000000,  
-  B11000000,
-  B11000000,  
-  B11000000,
-  B11000000,  
-  B11000000,
-  
-  B11000000,  
-  B11000000,
-  B11000000,  
-  B11000000,
-  B11000000,  
-  B11000000,
-  B11000000,  
-  B11000000,
-  
   B00000011,
-  B00000011, 
-  B00110000,
-  B00000011,
-  B00000011, 
-  B00110000,
-  B00000011,
-  B00000011, 
-  
-  B00110000,
-  B00110000,  
-  B00000011,
-  B00000011, 
-  B00110000,
-  B00110000,  
-  B11000000,  
-  B11000000,
-  
-  B00001100,
-  B00001100,  
-  B00110000,
-  B00001100,
-  B00001100,  
-  B00110000,
   B00001100,
   B00001100,
-    
   B00110000,
-  B00110000,  
-  B00001100,
-  B00001100,  
   B00110000,
-  B00110000,  
+  B00110000,
+  B00110000,
+
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+
   B11000000,
   B11000000,
-  
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+  B11000000,
+
   B00000011,
-  B00000011,   
-  B00110000,  
   B00000011,
-  B00000011,  
   B00110000,
   B00000011,
   B00000011,
-  
+  B00110000,
+  B00000011,
+  B00000011,
+
   B00110000,
   B00110000,
   B00000011,
@@ -572,16 +545,52 @@ const PROGMEM int note_display[] = {
   B00110000,
   B11000000,
   B11000000,
-  
+
+  B00001100,
+  B00001100,
+  B00110000,
+  B00001100,
+  B00001100,
+  B00110000,
+  B00001100,
+  B00001100,
+
+  B00110000,
+  B00110000,
+  B00001100,
+  B00001100,
+  B00110000,
+  B00110000,
+  B11000000,
+  B11000000,
+
+  B00000011,
+  B00000011,
+  B00110000,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00000011,
+  B00000011,
+
+  B00110000,
+  B00110000,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00110000,
+  B11000000,
+  B11000000,
+
   B00000011,
   B00000011,
   B00001100,
   B00000011,
   B00000011,
-  B00001100,  
+  B00001100,
   B00000011,
   B00000011,
-  
+
   B00001100,
   B00001100,
   B00000011,
@@ -593,17 +602,8 @@ const PROGMEM int note_display[] = {
 
   B00000000,
   B00000000,
-  
-  B00000011, 
+
   B00000011,
-  B00000011,
-  B00000011,
-  B00110000,
-  B00110000,
-  B00110000,
-  B00110000,
-  
-  B00000011, 
   B00000011,
   B00000011,
   B00000011,
@@ -611,8 +611,17 @@ const PROGMEM int note_display[] = {
   B00110000,
   B00110000,
   B00110000,
-  
-  B00000011, 
+
+  B00000011,
+  B00000011,
+  B00000011,
+  B00000011,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+
+  B00000011,
   B00000011,
   B00000011,
   B00000011,
@@ -620,8 +629,8 @@ const PROGMEM int note_display[] = {
   B11000000,
   B11000000,
   B11000000,
-  
-  B00000011, 
+
+  B00000011,
   B00000011,
   B00000011,
   B00000011,
@@ -629,17 +638,8 @@ const PROGMEM int note_display[] = {
   B11000000,
   B11000000,
   B11000000,
-  
-  B00000011, 
+
   B00000011,
-  B00000011,
-  B00000011,
-  B00110000,
-  B00110000,
-  B00110000,
-  B00110000,
-  
-  B00000011, 
   B00000011,
   B00000011,
   B00000011,
@@ -647,17 +647,17 @@ const PROGMEM int note_display[] = {
   B00110000,
   B00110000,
   B00110000,
-  
-  B00000011, 
+
   B00000011,
   B00000011,
   B00000011,
-  B00001100,
-  B00001100,
-  B00001100,
-  B00001100,
-  
-  B00000011, 
+  B00000011,
+  B00110000,
+  B00110000,
+  B00110000,
+  B00110000,
+
+  B00000011,
   B00000011,
   B00000011,
   B00000011,
@@ -666,16 +666,16 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00001100,
 
-  B00000000, 
+  B00000011,
+  B00000011,
+  B00000011,
+  B00000011,
+  B00001100,
+  B00001100,
+  B00001100,
+  B00001100,
+
   B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  
-  B00000000, 
   B00000000,
   B00000000,
   B00000000,
@@ -684,16 +684,7 @@ const PROGMEM int note_display[] = {
   B00000000,
   B00000000,
 
-  B00000000, 
   B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-
-  B00000000, 
   B00000000,
   B00000000,
   B00000000,
@@ -702,16 +693,7 @@ const PROGMEM int note_display[] = {
   B00000000,
   B00000000,
 
-  B00000000, 
   B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-
-  B00000000, 
   B00000000,
   B00000000,
   B00000000,
@@ -720,16 +702,7 @@ const PROGMEM int note_display[] = {
   B00000000,
   B00000000,
 
-  B00000000, 
   B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-
-  B00000000, 
   B00000000,
   B00000000,
   B00000000,
@@ -738,7 +711,43 @@ const PROGMEM int note_display[] = {
   B00000000,
   B00000000,
 
-  B00000000, 
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+  B00000000,
+
+  B00000000,
   B00000000,
   B00000000,
   B00000000,
@@ -746,51 +755,54 @@ const PROGMEM int note_display[] = {
   B00000000,
   B00000000,
   B00000000
-  };
+};
 
-int notedisp_size = sizeof(note_display)/sizeof(uint16_t); 
+int notedisp_size = sizeof(note_display) / sizeof(uint16_t);
 
-int dispstart = notedisp_size-8; 
+int dispstart = notedisp_size - 8;
 // need redundant variable because of the specifics of how the scheduling functions work
-int dispstart2 = notedisp_size-8; 
-int disprow;   
+int dispstart2 = notedisp_size - 8;
+int disprow;
 bool startMelody = false;
 
 Tone notePlayer[2];
 
-int row; 
-int col;  
-long prevtime; 
-long currtime; 
+int row;
+int col;
+long prevtime;
+long currtime;
 
-int noteIdx; 
+int noteIdx;
 
-long startTime;  
+long startTime;
 
-int L1 = B11000000; int L1pin = 12; 
-int L2 = B00110000; int L2pin = 13; 
-int R1 = B00001100; int R1pin = A6; 
-int R2 = B00000011; int R2pin = A7; 
+int L1 = B11000000; int L1pin = 12;
+int L2 = B00110000; int L2pin = 13;
+int R1 = B00001100; int R1pin = A6;
+int R2 = B00000011; int R2pin = A7;
 
-int playerNote = 0; 
+int playerNote = 0;
 int correctNote = false;
 
-int score = 0; 
-bool checkInput = false;
+int score = 0;
 
-// demo mode: just plays the song 
+// demo mode: just plays the song
 bool demo = false;
+
+bool quitPlayerMelody =  false;
+
+int pinRead;
 
 void setup() {
   // put your setup code here, to run once:
-  for(int col = 0; col < 8; col++) {
-    pinMode(columns[col], OUTPUT); 
-    digitalWrite(columns[col], LOW); 
+  for (int col = 0; col < 8; col++) {
+    pinMode(columns[col], OUTPUT);
+    digitalWrite(columns[col], LOW);
   }
 
-  for(int row = 0; row < 8; row++) {
-    pinMode(rows[row], OUTPUT); 
-    digitalWrite(rows[row], HIGH); 
+  for (int row = 0; row < 8; row++) {
+    pinMode(rows[row], OUTPUT);
+    digitalWrite(rows[row], HIGH);
   }
 
   pinMode(L1pin, INPUT);
@@ -800,103 +812,92 @@ void setup() {
 
   notePlayer[0].begin(8);
   notePlayer[1].begin(9);
- 
-  startTime = millis(); 
+
+  startTime = millis();
 }
 
 void testloop() {
-  for(int row = 0; row < 8; row++) {
-    for(int col = 0; col < 8; col++) {
-      digitalWrite(columns[col], HIGH); 
-      digitalWrite(rows[row], LOW); 
+  for (int row = 0; row < 8; row++) {
+    for (int col = 0; col < 8; col++) {
+      digitalWrite(columns[col], HIGH);
+      digitalWrite(rows[row], LOW);
 
-      delay(100); 
+      delay(100);
 
-      digitalWrite(columns[col], LOW); 
-      digitalWrite(rows[row], HIGH); 
+      digitalWrite(columns[col], LOW);
+      digitalWrite(rows[row], HIGH);
     }
   }
 }
 
 void TestLoop(PTCB tcb) {
-  MOS_Continue(tcb);   
+  MOS_Continue(tcb);
 
-  while (1) { 
-    for(row = 0; row < 8; row++) {
-      for(col = 0; col < 8; col++) {
-        digitalWrite(columns[col], HIGH); 
-        digitalWrite(rows[row], LOW); 
-  
+  while (1) {
+    for (row = 0; row < 8; row++) {
+      for (col = 0; col < 8; col++) {
+        digitalWrite(columns[col], HIGH);
+        digitalWrite(rows[row], LOW);
+
         MOS_Delay(tcb, 100);
-  
-        digitalWrite(columns[col], LOW); 
-        digitalWrite(rows[row], HIGH); 
+
+        digitalWrite(columns[col], LOW);
+        digitalWrite(rows[row], HIGH);
       }
     }
   }
 }
 
 void displayNotes(PTCB tcb) {
-  MOS_Continue(tcb);     
-  prevtime = millis();  
+  MOS_Continue(tcb);
+  prevtime = millis();
 
-  while (1) {  
-    currtime = millis(); 
-    disprow = 0; 
-    
-    if(dispstart2 >= 0) {
-      // notes fall at a fixed rate, which is this case is approximately the length of a 
+  while (1) {
+    currtime = millis();
+    disprow = 0;
+
+    if (dispstart2 >= 0) {
+      // notes fall at a fixed rate, which is this case is approximately the length of a
       // sixteenth note (the smallest note unit for the whole song)
-      // ideally it would be exactly the length of a sixteenth note, but I had to somehow account for the 
+      // ideally it would be exactly the length of a sixteenth note, but I had to somehow account for the
       // accumulated delay (line 869) that is a consequence of running the LED display
-      if(currtime < prevtime + 120) {
-        for(dispstart = dispstart2; dispstart < dispstart2 + 8; dispstart++) {
-          
-          uint16_t dispnote = pgm_read_word_near(note_display + dispstart);           
-          PORTD = dispnote; 
-          
-          if(disprow == 6) { 
-//            int L1val = ((digitalRead(L1pin))&0x11) << 6 ; 
-//            int L2val = ((digitalRead(L2pin))&0x11) << 4 ; 
-//            int R1val = ((digitalRead(R1pin))&0x11) << 2 ; 
-//            int R2val = digitalRead(R2pin)&0x11; 
-//
-//            correctNote = (dispnote == (L1val+L2val+R1val+R2val));
-//            //playerNote = dispnote;
-//            
-//            if(!checkInput)
-//              checkInput = true;
-              
+      if (currtime < prevtime + 120) {
+        for (dispstart = dispstart2; dispstart < dispstart2 + 8; dispstart++) {
+
+          uint16_t dispnote = pgm_read_word_near(note_display + dispstart);
+          PORTD = dispnote;
+
+          if (disprow == 6) {
             PORTD = B11111111;
           }
-          digitalWrite(rows[disprow], LOW); 
-          
-          MOS_Delay(tcb,1);  
-          
+          digitalWrite(rows[disprow], LOW);
+
+          MOS_Delay(tcb, 1);
+
           PORTD = 0;
-          digitalWrite(rows[disprow], HIGH); 
+          digitalWrite(rows[disprow], HIGH);
           disprow++;
-          
+
         }
       }
-      
+
       else {
-        dispstart2--;  
+        dispstart2--;
 
         prevtime = currtime;
-      } 
-      
+      }
+
     }
-    else { 
-      for(row = 0; row < 8; row++) {
-        for(col = 0; col < 8; col++) {
-          digitalWrite(columns[col], HIGH); 
-          digitalWrite(rows[row], LOW); 
-    
+    else {
+      for (row = 0; row < 8; row++) {
+        for (col = 0; col < 8; col++) {
+          digitalWrite(columns[col], HIGH);
+          digitalWrite(rows[row], LOW);
+
           MOS_Delay(tcb, 50);
-    
-          digitalWrite(columns[col], LOW); 
-          digitalWrite(rows[row], HIGH); 
+
+          digitalWrite(columns[col], LOW);
+          digitalWrite(rows[row], HIGH);
         }
       }
       MOS_Break(tcb);
@@ -905,131 +906,124 @@ void displayNotes(PTCB tcb) {
 }
 
 void ticker(PTCB tcb) {
-  MOS_Continue(tcb);    
-  while(1) { 
-    if(!startMelody && millis() >= startTime + 875) {
+  MOS_Continue(tcb);
+  while (1) {
+    if (!startMelody && millis() >= startTime + 875) {
       startMelody = true;
     }
-    else if (!demo && startMelody && checkInput) {  
-      MOS_Break(tcb);//temp
-      /*
-      bool L1val = digitalRead(L1pin) == HIGH; 
-      bool L2val = digitalRead(L2pin) == HIGH; 
-      bool R1val = digitalRead(R1pin) == HIGH; 
-      bool R2val = digitalRead(R2pin) == HIGH; 
-
-      switch(playerNote) {
-        
-        case B00110000:
-          //correctNote = L2val && (!L1val) && (!R1val) && (!R2val); 
-          correctNote = L2val;
-          break;
-        case B11000000:
-          //correctNote = L1val && (!L2val) && (!R1val) && (!R2val); 
-          correctNote = L1val;
-          break;
-        case B00001100:
-          //correctNote = R1val && (!L2val) && (!L1val) && (!R2val); 
-          correctNote = R1val;
-          break;
-        case B00000011:
-          //correctNote = R2val && (!L2val) && (!R1val) && (!L1val); 
-          correctNote = R2val;
-          break;
-        case B00000000:
-          //correctNote = (!R2val) && (!L2val) && (!R1val) && (!L1val); 
-          break;
-          
-      }
-
-      checkInput = false;
-      */
+    else if (!demo && startMelody && expidx < expectedNotes_size) { 
+      MOS_Delay(tcb, 125); 
+      expidx++;  
     }
     else {
-       MOS_Break(tcb);
+      MOS_Break(tcb);
     }
   }
 }
 
 void BGMelody(PTCB tcb) {
-  MOS_Continue(tcb);    
-  bgidx= 0; 
-  
-  while (1) {  
-    if(startMelody && bgidx < bgnotes_size) {
-      //int currnote = bgnotes[bgidx]; 
-      uint16_t currnote = pgm_read_word_near(bgnotes + bgidx); 
+  MOS_Continue(tcb);
+  bgidx = 0;
 
-      if(currnote > 0) {
+  while (1) {
+    if (startMelody && bgidx < bgnotes_size) {
+      //int currnote = bgnotes[bgidx];
+      uint16_t currnote = pgm_read_word_near(bgnotes + bgidx);
+
+      if (currnote > 0) {
         notePlayer[1].play(currnote);
       } else if (currnote == 0) {
         notePlayer[1].stop();
       }
-      
-      uint16_t dur = pgm_read_word_near(bgdur+ bgidx); 
+
+      uint16_t dur = pgm_read_word_near(bgdur + bgidx);
       MOS_Delay(tcb, dur);
       notePlayer[1].stop();
-      MOS_Delay(tcb,gapdur); 
+      MOS_Delay(tcb, gapdur);
       bgidx++;
     }
     else {
       MOS_Break(tcb);
     }
-     
+
   }
 }
+
+
+void PlayerPlaying(PTCB tcb) {
+  MOS_Continue(tcb);
+  expidx = 0;
+
+  while (1) {
+
+      pinRead = pgm_read_word_near(expectedPins + expidx); 
+
+      if(pinRead != 0) {
+        int myPin = digitalRead(12);
+        if(myPin == HIGH)  {
+          int noteplay = pgm_read_word_near(expectedNotes + expidx); 
+          if(noteplay > 0) 
+            notePlayer[0].play(noteplay);  
+        } 
+        else {
+          notePlayer[0].stop();  
+        }
+        MOS_Break(tcb);
+      }
+      else {
+        MOS_Break(tcb);
+      } 
+    
+  }
+}
+
 void PlayerMelody(PTCB tcb) {
-  MOS_Continue(tcb);   
-  mainidx = 0; 
+  MOS_Continue(tcb);
+  mainidx = 0;
 
-  while (1) { 
-    if(startMelody && mainidx < mainnotes_size) { 
-      uint16_t currnote = pgm_read_word_near(mainnotes + mainidx); 
+  while (1) {
+    if (!quitPlayerMelody && startMelody && mainidx < mainnotes_size) {
+      uint16_t currnote = pgm_read_word_near(mainnotes + mainidx);
 
-        if(currnote > 0) {
-          /*
-          if(demo || correctNote) {
-            notePlayer[0].play(currnote);
-            score++; 
-          } else {
-            notePlayer[0].stop(); 
-          }
-          */
-          if(digitalRead(L1pin) == HIGH) {
-            notePlayer[0].play(currnote);
-          }
-          else {
-            notePlayer[0].stop();
-          }
+      if (demo || mainidx < 16 ) {
+        if (currnote > 0) {
+          notePlayer[0].play(currnote);
           //if(!correctNote)
-            //notePlayer[0].stop(); 
+          //notePlayer[0].stop();
         } else if (currnote == 0) {
           notePlayer[0].stop();
         }
-      
-        
-        uint16_t dur = pgm_read_word_near(maindur+ mainidx); 
+
+
+        uint16_t dur = pgm_read_word_near(maindur + mainidx);
         MOS_Delay(tcb, dur);
         notePlayer[0].stop();
-        MOS_Delay(tcb,gapdur); 
-        
-        mainidx++; 
-      
+        MOS_Delay(tcb, gapdur);
+
+        mainidx++;
+      }
+
+      else { 
+        MOS_Break(tcb);
+      }
+
     }
 
     else {
       MOS_Break(tcb);
     }
-    
-  } 
+
+  }
 }
 
 
 void loop() {
-  //testloop();  
-  MOS_Call(ticker); 
+  //testloop();
+  MOS_Call(ticker);
   MOS_Call(displayNotes);
-  MOS_Call(BGMelody);
-  MOS_Call(PlayerMelody);
+  MOS_Call(PlayerPlaying);
+  MOS_Call(BGMelody); 
+//  MOS_Call(PlayerMelody);
+
 
 }
