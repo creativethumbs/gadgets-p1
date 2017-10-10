@@ -181,9 +181,11 @@ const PROGMEM uint16_t maindur[] = {
 // NOTES EXPECTED AT EVERY POINT IN THE GAME
 const PROGMEM int expectedNotes[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_FS3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_A2,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_FS4,NOTE_FS4,NOTE_GS4,NOTE_GS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_E4,NOTE_E4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_E4,NOTE_E4,NOTE_GS4,NOTE_GS4,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_FS4,NOTE_FS4,NOTE_GS4,NOTE_GS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_CS4,NOTE_CS4,NOTE_CS4,NOTE_CS4,NOTE_E4,NOTE_E4,NOTE_E4,NOTE_E4,NOTE_F3,NOTE_F3,NOTE_F3,NOTE_F3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_CS5,NOTE_FS5,NOTE_CS5,NOTE_A4,NOTE_FS4,0,NOTE_FS4,NOTE_A4,NOTE_CS5,NOTE_FS5,NOTE_FS5,NOTE_CS5,0,NOTE_D5,NOTE_D5,NOTE_D5,NOTE_CS5,NOTE_D5,NOTE_E5,NOTE_D5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,0,NOTE_B4,NOTE_B4,NOTE_B4,NOTE_A4,NOTE_B4,NOTE_CS5,NOTE_B4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_GS4,NOTE_A4,NOTE_B4,NOTE_A4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_F4,NOTE_GS4,NOTE_A4,NOTE_B4,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,0,0,0,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_CS5,NOTE_FS5,NOTE_CS5,NOTE_A4,NOTE_FS4,0,NOTE_FS4,NOTE_A4,NOTE_CS5,NOTE_FS5,NOTE_FS5,NOTE_CS5,0,NOTE_A5,NOTE_A5,NOTE_GS5,NOTE_GS5,NOTE_FS5,NOTE_FS5,NOTE_CS5,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,0,0,0,NOTE_A5,NOTE_A5,NOTE_CS5,NOTE_CS5,NOTE_GS5,NOTE_GS5,NOTE_FS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,0,NOTE_GS5,NOTE_A5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,0,0,0,0,0,0,NOTE_FS4,NOTE_FS4,NOTE_FS4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 // PINS THAT NEED TO BE READ AT EVERY POINT IN THE GAME
-const PROGMEM int expectedPins[] = {  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 0, 0, 0, 12, 12, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+const PROGMEM int expectedPins[] = {  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12,12,12,12,13,13,13,13,12,12,12,12,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,12,12,12,12,13,13,13,13,12,12,12,12,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,12,12,13,13,12,12,13,13,12,13,13,12,13,13,12,12,13,13,13,13,13,13,13,13,13,13,13,13,13,13,12,12,13,13,12,12,13,13,12,12,13,12,12,13,12,12,12,12,13,13,13,13,13,13,13,13,13,13,13,13,13,13,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,13,13,13,13,12,12,13,13,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,13,12,13,13,12,12,12,12,13,12,13,13,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,13,13,13,13,12,12,13,13,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,12,12,12,12,12,12,12,12,12,12,13,12,13,12,13,12,0,12,13,12,13,13,12,0,13,13,12,13,12,13,12,13,13,13,13,13,13,13,13,0,13,13,12,13,12,13,12,13,13,13,12,13,12,13,12,13,13,13,12,12,13,12,13,12,12,12,12,12,12,0,0,0,12,12,13,12,13,12,13,12,0,12,13,12,13,13,12,0,13,13,12,12,13,13,12,12,12,12,12,12,12,0,0,0,13,13,13,13,12,12,13,12,12,12,12,12,12,0,12,13,12,12,12,12,12,12,13,13,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,0,0,0,0,0,0,12,13,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
 int expectedNotes_size = sizeof(expectedNotes) / sizeof(int);
+int expectedPins_size = sizeof(expectedPins) / sizeof(int);
+
 int expidx = 0;
 
 int mainidx = 0;
@@ -302,9 +304,7 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00110000,
   B11000000,
-  B11000000,
-
-  B00000000,
+  B11000000, 
 
   B00000000,
   B00000000,
@@ -340,9 +340,7 @@ const PROGMEM int note_display[] = {
   B00110000,
   B00001100,
   B00110000,
-  B00110000,
-
-  B00000000,
+  B00110000, 
 
   B00000000,
   B00110000,
@@ -380,9 +378,9 @@ const PROGMEM int note_display[] = {
   B11000000,
   B11000000,  // BOSS BATTLE
 
-  B00000000,
-  B00000000,
-  B00000000,
+//  B00000000,
+//  B00000000,
+//  B00000000,
 
   B00001100,
   B00001100,
@@ -598,10 +596,7 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00001100,
   B00110000,
-  B00110000,
-
-  B00000000,
-  B00000000,
+  B00110000, 
 
   B00000011,
   B00000011,
@@ -673,16 +668,7 @@ const PROGMEM int note_display[] = {
   B00001100,
   B00001100,
   B00001100,
-  B00001100,
-
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
-  B00000000,
+  B00001100, 
 
   B00000000,
   B00000000,
@@ -787,11 +773,15 @@ int correctNote = false;
 int score = 0;
 
 // demo mode: just plays the song
-bool demo = false;
+bool demo = true;
 
 bool quitPlayerMelody =  false;
 int pinRead;
 bool pressingButton = false;
+
+bool startDisplay = true;
+
+int portdtest = B11111111;
 
 void setup() {
   // put your setup code here, to run once:
@@ -813,7 +803,8 @@ void setup() {
   notePlayer[0].begin(8);
   notePlayer[1].begin(9);
 
-  startTime = millis();
+  startTime = millis(); 
+
 }
 
 void testloop() {
@@ -849,66 +840,63 @@ void TestLoop(PTCB tcb) {
 }
 
 void displayNotes(PTCB tcb) {
-  MOS_Continue(tcb);
-  prevtime = millis();
+  MOS_Continue(tcb); 
+  currtime = millis();
 
   while (1) {
-    currtime = millis();
+    
     disprow = 0;
 
-    if (dispstart2 >= 0) {
+    if (startDisplay && dispstart2 >= 0) {
       // notes fall at a fixed rate, which is this case is approximately the length of a
-      // sixteenth note (the smallest note unit for the whole song)
-      // ideally it would be exactly the length of a sixteenth note, but I had to somehow account for the
-      // accumulated delay (line 869) that is a consequence of running the LED display
-      if (currtime < prevtime + 120) {
-        for (dispstart = dispstart2; dispstart < dispstart2 + 8; dispstart++) {
+      // sixteenth note (the smallest note unit for the whole song) 
+      if (currtime < prevtime + 125) { 
+        // need to keep checking the time condition because timing could get off when delay is accumulated
+        for (dispstart = dispstart2; currtime < prevtime + 125 && dispstart < dispstart2 + 8; dispstart++) {
 
           uint16_t dispnote = pgm_read_word_near(note_display + dispstart);
           PORTD = dispnote;
 
-          if (disprow == 6) {
-            PORTD = B11111111;
+//          if (disprow == 6) {
+//            PORTD = B11111111;
+//          }
+
+            // checking whether lights are synchronized
+          if (disprow != 6) {
+            PORTD = 0;
           }
+          
           digitalWrite(rows[disprow], LOW);
 
           MOS_Delay(tcb, 1);
+          currtime = millis();
 
           PORTD = 0;
           digitalWrite(rows[disprow], HIGH);
           disprow++;
 
         }
+        
+        
       }
 
-      else {
+      else { 
+//        portdtest = ~portdtest;
         dispstart2--;
-
-        prevtime = currtime;
+        prevtime = millis();
       }
 
     }
     else {
-      for (row = 0; row < 8; row++) {
-        for (col = 0; col < 8; col++) {
-          digitalWrite(columns[col], HIGH);
-          digitalWrite(rows[row], LOW);
-
-          MOS_Delay(tcb, 50);
-
-          digitalWrite(columns[col], LOW);
-          digitalWrite(rows[row], HIGH);
-        }
-      }
-      MOS_Break(tcb);
+      MOS_Break(tcb); 
     }
   }
 }
 
 void ticker(PTCB tcb) {
   MOS_Continue(tcb);
-  while (1) {
-    if (!startMelody && millis() >= startTime + 875) {
+  while (1) { 
+    if (!startMelody) {
       startMelody = true;
     }
     else if (!demo && startMelody && expidx < expectedNotes_size) { 
@@ -951,12 +939,10 @@ void BGMelody(PTCB tcb) {
 
 void PlayerPlaying(PTCB tcb) {
   MOS_Continue(tcb);
-//  expidx = 0;
 
   while (1) {
 
       pinRead = pgm_read_word_near(expectedPins + expidx); 
-//      pinRead = 12;
 
       if(pinRead != 0) {
         int myPin;
@@ -990,7 +976,7 @@ void PlayerMelody(PTCB tcb) {
   mainidx = 0;
 
   while (1) {
-    if (!quitPlayerMelody && startMelody && mainidx < mainnotes_size) {
+    if (startMelody && mainidx < mainnotes_size) {
       uint16_t currnote = pgm_read_word_near(mainnotes + mainidx);
 
       if (demo || mainidx < 16 ) {
@@ -1030,7 +1016,7 @@ void loop() {
   MOS_Call(displayNotes);
   MOS_Call(PlayerPlaying);
   MOS_Call(BGMelody); 
-//  MOS_Call(PlayerMelody);
+  MOS_Call(PlayerMelody);
 
 
 }
