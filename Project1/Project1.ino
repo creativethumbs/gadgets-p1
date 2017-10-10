@@ -181,7 +181,7 @@ const PROGMEM uint16_t maindur[] = {
 // NOTES EXPECTED AT EVERY POINT IN THE GAME
 const PROGMEM int expectedNotes[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_FS3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_FS3,NOTE_A3,NOTE_A3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_A2,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_A2,NOTE_CS3,NOTE_CS3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_E3,NOTE_GS3,NOTE_GS3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_FS4,NOTE_FS4,NOTE_GS4,NOTE_GS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_E4,NOTE_E4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_E4,NOTE_E4,NOTE_GS4,NOTE_GS4,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_D4,NOTE_FS4,NOTE_FS4,NOTE_GS4,NOTE_GS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_CS4,NOTE_CS4,NOTE_CS4,NOTE_CS4,NOTE_E4,NOTE_E4,NOTE_E4,NOTE_E4,NOTE_F3,NOTE_F3,NOTE_F3,NOTE_F3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_B3,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_CS5,NOTE_FS5,NOTE_CS5,NOTE_A4,NOTE_FS4,0,NOTE_FS4,NOTE_A4,NOTE_CS5,NOTE_FS5,NOTE_FS5,NOTE_CS5,0,NOTE_D5,NOTE_D5,NOTE_D5,NOTE_CS5,NOTE_D5,NOTE_E5,NOTE_D5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,0,NOTE_B4,NOTE_B4,NOTE_B4,NOTE_A4,NOTE_B4,NOTE_CS5,NOTE_B4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_GS4,NOTE_A4,NOTE_B4,NOTE_A4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_GS4,NOTE_F4,NOTE_GS4,NOTE_A4,NOTE_B4,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,NOTE_CS5,0,0,0,NOTE_FS4,NOTE_FS4,NOTE_FS4,NOTE_CS5,NOTE_FS5,NOTE_CS5,NOTE_A4,NOTE_FS4,0,NOTE_FS4,NOTE_A4,NOTE_CS5,NOTE_FS5,NOTE_FS5,NOTE_CS5,0,NOTE_A5,NOTE_A5,NOTE_GS5,NOTE_GS5,NOTE_FS5,NOTE_FS5,NOTE_CS5,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,NOTE_A4,0,0,0,NOTE_A5,NOTE_A5,NOTE_CS5,NOTE_CS5,NOTE_GS5,NOTE_GS5,NOTE_FS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,NOTE_GS5,0,NOTE_GS5,NOTE_A5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_F5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,NOTE_FS5,0,0,0,0,0,0,NOTE_FS4,NOTE_FS4,NOTE_FS4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 // PINS THAT NEED TO BE READ AT EVERY POINT IN THE GAME
-const PROGMEM int expectedPins[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,A6, A6, A6, A6, A7, A7, A7, A7, A6, A6, A6, A6, A7, A7, A7, A7, 13, 13, 13, 13, A7, A7, A7, A7, 13, 13, 13, 13, A7, A7, A7, A7, 12, 12, 12, 12, A7, A7, A7, A7, 12, 12, 12, 12, A7, A7, A7, A7, 13, 13, 13, 13, A7, A7, A7, A7, 13, 13, 13, 13, A7, A7, A7, A7, 0, 0, 13, 13, A6, A6, A7, A7, A6, A6, A7, A7, A6, A7, A7, A6, A7, A7, 12, 12, 13, 13, A7, A7, 13, 13, A7, A7, 13, A7, A7, 13, A7, A7, 12, 12, 13, 13, A6, A6, 13, 13, A6, A6, 13, A6, A6, 13, A6, A6, 12, 12, 13, 13, A7, A7, 13, 13, A7, A7, 13, A7, A7, 13, A7, A7, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, A6, A6, A7, A7, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, 12, 12, 13, A6, 13, 13, A6, A6, 12, 12, 13, A6, 13, 13, A6, A6, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, A6, A6, A7, A7, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, 13, 13, 13, 13, A7, A7, A7, A7, 12, 12, 12, 12, A6, A6, A6, A6, 0, 0, 0, 12, 12, 13, A6, A7, A6, 13, 12, 0, 12, 13, A6, A7, A7, A6, 0, 13, 13, A6, 13, A6, A7, A6, 13, 13, 13, 13, 13, 13, 13, 13, 0, 0, 13, 13, A6, 13, A6, A7, A6, 13, 13, 13, A6, 13, A6, A7, A6, 13, 13, 13, A6, 12, 13, A6, A7, A6, A6, A6, A6, A6, A6, 0, 0, 0, 0, 12, 12, 13, A6, A7, A6, 13, 12, 0, 12, 13, A6, A7, A7, A6, 0, A7, A7, A6, A6, 13, 13, A6, 12, 12, 12, 12, 12, 12, 0, 0, 0, A7, A7, 13, 13, A6, A6, 13, A6, A6, A6, A6, A6, A6, 0, A6, A7, 12, 12, 12, 12, 12, 12, 13, 13, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, A6, 0, 0, 0, 0, 0, 0, 12, A7, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+const PROGMEM int expectedPins[] = {  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 0, 0, 0, 12, 12, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 int expectedNotes_size = sizeof(expectedNotes) / sizeof(int);
 int expidx = 0;
@@ -790,8 +790,8 @@ int score = 0;
 bool demo = false;
 
 bool quitPlayerMelody =  false;
-
 int pinRead;
+bool pressingButton = false;
 
 void setup() {
   // put your setup code here, to run once:
@@ -926,8 +926,7 @@ void BGMelody(PTCB tcb) {
   bgidx = 0;
 
   while (1) {
-    if (startMelody && bgidx < bgnotes_size) {
-      //int currnote = bgnotes[bgidx];
+    if (startMelody && bgidx < bgnotes_size) { 
       uint16_t currnote = pgm_read_word_near(bgnotes + bgidx);
 
       if (currnote > 0) {
@@ -952,27 +951,36 @@ void BGMelody(PTCB tcb) {
 
 void PlayerPlaying(PTCB tcb) {
   MOS_Continue(tcb);
-  expidx = 0;
+//  expidx = 0;
 
   while (1) {
 
       pinRead = pgm_read_word_near(expectedPins + expidx); 
+//      pinRead = 12;
 
       if(pinRead != 0) {
-        int myPin = digitalRead(12);
-        if(myPin == HIGH)  {
-          int noteplay = pgm_read_word_near(expectedNotes + expidx); 
-          if(noteplay > 0) 
-            notePlayer[0].play(noteplay);  
+        int myPin;
+        if(pinRead == A6 || pinRead == A7) {
+//          myPin = analogRead(pinRead) > 1000 ? 1 : 0; 
         } 
+        else {
+          myPin = digitalRead(pinRead); 
+        } 
+        
+        if(myPin)  {
+
+          int noteplay = pgm_read_word_near(expectedNotes + expidx); 
+//          if(noteplay > 0) 
+          notePlayer[0].play(noteplay);  
+        } 
+        
         else {
           notePlayer[0].stop();  
         }
-        MOS_Break(tcb);
-      }
-      else {
-        MOS_Break(tcb);
+         
       } 
+
+      MOS_Break(tcb); // this needs to be here or else bad things will happen
     
   }
 }
@@ -988,8 +996,7 @@ void PlayerMelody(PTCB tcb) {
       if (demo || mainidx < 16 ) {
         if (currnote > 0) {
           notePlayer[0].play(currnote);
-          //if(!correctNote)
-          //notePlayer[0].stop();
+
         } else if (currnote == 0) {
           notePlayer[0].stop();
         }
